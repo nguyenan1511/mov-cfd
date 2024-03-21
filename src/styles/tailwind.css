@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+	.container {
+		@apply relative mx-auto w-full px-[30px] max-w-[1290px] _xxs:px-[15px];
+	}
+	.flexCenter {
+		@apply flex items-center justify-center;
+	}
+	.btnMain {
+		@apply h-[50px] px-[30px] py-[16px] text-white flexCenter rounded-[2px] font-semibold uppercase text-[16px] relative border-[1px] _xs:h-[40px];
+	}
+	.textBanner {
+		@apply text-[64px] text-main font-bold;
+	}
+	.titleSection {
+		@apply text-[40px] font-medium text-main;
+	}
+	.titlePage {
+		@apply text-[64px] font-semibold text-main _xxs:text-[48px];
+	}
+	.subTitle {
+		@apply text-[24px] font-bold text-main;
+	}
+}
+
+/* Reset button of Antd because Tailwind conflict */
+.ant-btn-primary {
+	background: #1677ff;
+}
+
+.anticon {
+	vertical-align: middle;
+}
+
+a:hover {
+	color: white;
+}
+
+.absImg {
+	@apply absolute w-full h-full top-0 left-0 object-cover;
+}
+
+.inputBooking {
+	@apply w-full px-0 pb-[10px] border-b border-[#B1E0DA] text-black placeholder:text-[#949494] focus:outline-none;
+}
+
+.inputBorder {
+	@apply w-full px-[10px] border border-[#949494] text-black placeholder:text-[#7D7D7D] focus:outline-none leading-[48px];
+}
+
+.errors {
+	@apply text-[#ff0000] text-[12px];
+}
