@@ -1,6 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable no-param-reassign */
-import { toInt } from "diginext-utils/dist/object";
+
 import { useRouter } from "next/router";
 import { createContext, useContext } from "react";
 
@@ -91,7 +91,7 @@ const ApiProvider = (props: any) => {
 			};
 		}
 
-		switch (toInt(res?.statusCode || 0)) {
+		switch (res?.statusCode || 0) {
 			case 401:
 			case 403:
 				{
