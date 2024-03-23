@@ -18,13 +18,13 @@ const StorageProvider = (props: any) => {
 	const router = useRouter();
 	const [isLoading, setIsLoading] = useState(false);
 	const [isShowSearch, setIsShowSearch] = useState(false);
-	const [lang, setLang] = useState("VI");
+	const [lang, setLang] = useState("vi");
 
 	useEffect(() => {
 		if (!router.isReady) {
 			return;
 		}
-		setLang(router.locale == "vi" ? "VI" : "EN");
+		setLang(router.locale == "vi" ? "vi" : "en");
 	}, [router.isReady]);
 
 	return (

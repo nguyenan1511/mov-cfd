@@ -31,8 +31,5 @@ module.exports = {
 			},
 		},
 	},
-	daisyui: {
-		themes: ["light", "black"],
-	},
-	plugins: [require("daisyui"), require("@tailwindcss/line-clamp"), require("@tailwindcss/aspect-ratio")],
+	plugins: [require("@tailwindcss/line-clamp"), require("@tailwindcss/aspect-ratio")],
 };

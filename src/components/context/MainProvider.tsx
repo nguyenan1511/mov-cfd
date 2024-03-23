@@ -108,7 +108,7 @@ const MainProvider: React.FC<Props> = ({ children }) => {
 
 	return (
 		<MainContext.Provider value={{}}>
-			<animated.div
+			{/* <animated.div
 				style={stylesLoading}
 				className={`loadingPage flexCenter fixed inset-0 z-[999] h-screen w-screen bg-[#e0f6f6]`}
 			>
@@ -118,7 +118,7 @@ const MainProvider: React.FC<Props> = ({ children }) => {
 					<span></span>
 					<span></span>
 				</div>
-			</animated.div>
+			</animated.div> */}
 			{children}
 		</MainContext.Provider>
 	);

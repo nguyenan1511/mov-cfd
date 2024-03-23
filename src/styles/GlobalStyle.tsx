@@ -53,16 +53,11 @@ const GlobalStyle = () => {
 					border-radius: 20px;
 				}
 			}
+			html {
+				font-size: 62.5%;
+			}
 			html,
 			body {
-				padding: 0;
-				margin: 0;
-				font-family: "GilroyBold", "sans-serif";
-				font-weight: 400;
-				line-height: normal;
-				font-size: 16px;
-				width: 100%;
-				color: #1e3888;
 				background: #fff;
 				height: 100dvh;
 				overflow-x: hidden;

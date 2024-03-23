@@ -2,10 +2,19 @@
 /* eslint-disable no-lone-blocks */
 import type { AxiosRequestConfig } from "axios";
 import Axios from "axios";
+import { setupCache } from "axios-cache-interceptor";
 
 import { AppConfig } from "@/modules/config/AppConfig";
 import { toFormData, toQueryString } from "@/plugins/api-call/helper";
 import errorRecord from "@/plugins/api-call/helper/errorRecord";
+
+let axios = {} as any;
+try {
+	axios = setupCache(Axios);
+} catch (error) {
+	axios = Axios;
+}
+// con
 
 export interface IApiCall {
 	url?: string;
@@ -35,11 +44,14 @@ const ApiCall = async ({
 	status: boolean | string;
 	message?: string[] | string;
 }> => {
+	if (baseUrlPath) url = `${process.env.NEXT_PUBLIC_BASE_URL}${baseUrlPath}`;
+	if (path) url = `${process.env.NEXT_PUBLIC_API_BASE_URL}${path}`;
+
 	let api;
 	const axiosOption = {
-		timeout: 1000 * 30, // Wait for 30 seconds
-		url: url || `${process.env.NEXT_PUBLIC_API_BASE_PATH}${path}` || `${process.env.NEXT_PUBLIC_BASE_URL}${baseUrlPath}`,
-		// url: url || `${process.env.NEXT_PUBLIC_API_BASE_PATH}${path}` || `${process.env.NEXT_PUBLIC_BASE_URL}${baseUrlPath}`,
+		timeout: 1000 * 20, // Wait for 20 seconds
+		// timeout: 1000 * 30, // Wait for 30 seconds
+		url,
 		method,
 		headers: { ...headers },
 		params: { ...params },
@@ -114,7 +126,7 @@ const ApiCall = async ({
 	let error;
 	// console.log('axiosOption :>> ', axiosOption);
 	try {
-		api = await Axios(axiosOption);
+		api = await axios(axiosOption);
 	} catch (e: any) {
 		if ((e as any)?.response?.data) {
 			api = (e as any)?.response;

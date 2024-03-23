@@ -4,7 +4,7 @@
 
 @layer components {
 	.container {
-		@apply relative mx-auto w-full px-[30px] max-w-[1290px] _xxs:px-[15px];
+		@apply relative;
 	}
 	.flexCenter {
 		@apply flex items-center justify-center;

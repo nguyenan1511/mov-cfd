@@ -2,6 +2,7 @@ import dynamic from "next/dynamic";
 import { type ReactNode } from "react";
 
 import { Meta } from "@/components/layouts/Meta";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 const GlobalStyle = dynamic(() => import("@/styles/GlobalStyle"), { ssr: false });
 const Providers = dynamic(() => import("@/components/context/compose/Providers"), { ssr: false });
@@ -19,6 +20,8 @@ type IMainProps = {
 	hideBooking?: boolean;
 };
 
+const queryClient = new QueryClient();
+
 const MasterPage = (props: IMainProps) => {
 	const title = props.meta?.metaTitle || "";
 	const description = props.meta?.metaDescription || "";
@@ -28,9 +31,11 @@ const MasterPage = (props: IMainProps) => {
 		<div id="wrapPage">
 			<Meta title={title} description={description} image={image} />
 			<GlobalStyle />
-			<Providers {...props}>
-				<RootScroll {...props}></RootScroll>
-			</Providers>
+			<QueryClientProvider client={queryClient}>
+				<Providers {...props}>
+					<RootScroll {...props}></RootScroll>
+				</Providers>
+			</QueryClientProvider>
 		</div>
 	);
 };

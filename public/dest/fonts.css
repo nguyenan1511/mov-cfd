@@ -1,0 +1,71 @@
+@font-face {
+  font-family: "br";
+  src: url("../fonts/BeVietnamPro-Regular.woff2") format("woff2"),
+    url("../fonts/BeVietnamPro-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "bm";
+  src: url("../fonts/BeVietnamPro-Medium.woff2") format("woff2"),
+    url("../fonts/BeVietnamPro-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "bi";
+  src: url("../fonts/BeVietnamPro-Italic.woff2") format("woff2"),
+    url("../fonts/BeVietnamPro-Italic.woff") format("woff");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "bb";
+  src: url("../fonts/BeVietnamPro-Bold.woff2") format("woff2"),
+    url("../fonts/BeVietnamPro-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "nb";
+  src: url("../fonts/Nunito-Bold.woff2") format("woff2"),
+    url("../fonts/Nunito-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "nm";
+  src: url("../fonts/Nunito-Medium.woff2") format("woff2"),
+    url("../fonts/Nunito-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "nsb";
+  src: url("../fonts/Nunito-SemiBold.woff2") format("woff2"),
+    url("../fonts/Nunito-SemiBold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "nr";
+  src: url("../fonts/Nunito-Regular.woff2") format("woff2"),
+    url("../fonts/Nunito-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
