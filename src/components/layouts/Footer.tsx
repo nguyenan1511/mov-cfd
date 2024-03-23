@@ -20,6 +20,11 @@ const Footer = () => {
 		staleTime: TIME_STALE, // 60 seconds
 	});
 
+	const srcollTop = () => {
+		const scrollToNew = document.getElementById("topPage");
+		if (scrollToNew) scrollToNew.scrollIntoView({ block: "start", behavior: "smooth" });
+	};
+
 	return (
 		<footer className="footer">
 			<div className="footer__top">
@@ -53,7 +58,9 @@ const Footer = () => {
 					</div>
 				</div>
 			</div>
-			<button className="footer__backtotop">Back to top</button>
+			<button className="footer__backtotop" onClick={srcollTop}>
+				Back to top
+			</button>
 		</footer>
 	);
 };

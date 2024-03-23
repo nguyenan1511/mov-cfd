@@ -4,13 +4,44 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
 
+const LISTMENU = [
+	{
+		link: "/about",
+		name: {
+			vi: "About MOV Vi",
+			en: "About MOV",
+		},
+	},
+	{
+		link: "/courses",
+		name: {
+			vi: "Our Programs Vi",
+			en: "Our Programs",
+		},
+	},
+	{
+		link: "/activities",
+		name: {
+			vi: "Activities Vi",
+			en: "Activities",
+		},
+	},
+	{
+		link: "/knowledge",
+		name: {
+			vi: "Knowledge Hubs Vi",
+			en: "Knowledge Hubs",
+		},
+	},
+];
+
 const Header = () => {
 	const { setLang, lang } = useStorage();
 
-	const router = useRouter();
+	const { pathname, push, asPath } = useRouter();
 
 	const changeLang = (lang: string) => {
-		router.push(router.asPath, undefined, {
+		push(asPath, undefined, {
 			locale: lang === "vi" ? "vi" : "en",
 		});
 		setLang(lang);
@@ -25,30 +56,17 @@ const Header = () => {
 					</Link>
 				</div>
 				<ul className="header__menu">
-					<li>
-						<Link href="/about" className="itemmenu">
-							About MOV
-						</Link>
-					</li>
-					<li>
-						<Link href="/courses" className="itemmenu active">
-							Our Programs
-						</Link>
-					</li>
-					<li>
-						<Link href="/activities" className="itemmenu">
-							Activities
-						</Link>
-					</li>
-					<li>
-						<Link href="/knowledge-Hubs" className="itemmenu">
-							Knowledge Hubs
-						</Link>
-					</li>
+					{LISTMENU.map((item: any, index: number) => (
+						<li key={index}>
+							<Link href={item?.link} className={`itemmenu ${pathname == item.link ? "active" : ""}`}>
+								{item?.name?.[lang]}
+							</Link>
+						</li>
+					))}
 				</ul>
 				<div className="header__right">
 					<Link href="/contact" className="btn-contact btn btn-fill">
-						Contact Us
+						{lang == "vi" ? "Liên hệ" : " Contact Us"}
 					</Link>
 					<div className="selecboxlang">
 						<button
