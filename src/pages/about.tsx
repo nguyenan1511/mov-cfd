@@ -5,7 +5,7 @@ import MasterPage from "@/components/layouts/MasterPage";
 import ApiCall from "@/plugins/api-call/ApiCall";
 import { useRouter } from "next/router";
 
-const UIAbout = dynamic(() => import("@/components/router/about/AboutPage"), { ssr: false });
+const UIAbout = dynamic(() => import("@/components/router/UIAbout"), { ssr: false });
 
 const About: NextPage = (props: any) => {
 	const router = useRouter();
@@ -13,10 +13,18 @@ const About: NextPage = (props: any) => {
 	return (
 		<MasterPage
 			meta={{
-				metaTitle: router?.locale === "vi" ? props?.dataDetail?.data?.vi?.metaTitle : props?.dataDetail?.data?.en?.metaTitle,
+				metaTitle:
+					router?.locale === "vi"
+						? props?.dataDetail?.data?.vi?.metaTitle
+						: props?.dataDetail?.data?.en?.metaTitle,
 				metaDescription:
-					router?.locale === "vi" ? props?.dataDetail?.data?.vi?.metaDescription : props?.dataDetail?.data?.en?.metaDescription,
-				metaImage: router?.locale === "vi" ? props?.dataDetail?.data?.vi?.metaImage : props?.dataDetail?.data?.en?.metaImage,
+					router?.locale === "vi"
+						? props?.dataDetail?.data?.vi?.metaDescription
+						: props?.dataDetail?.data?.en?.metaDescription,
+				metaImage:
+					router?.locale === "vi"
+						? props?.dataDetail?.data?.vi?.metaImage
+						: props?.dataDetail?.data?.en?.metaImage,
 			}}
 		>
 			<UIAbout />
