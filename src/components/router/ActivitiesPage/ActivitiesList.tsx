@@ -1,15 +1,15 @@
 import Link from "next/link";
 import React from "react";
 
-const ActivitiesList = ({ className = "" }) => {
+const ActivitiesList = ({ className = "", id = "prevclass", text = "Previous class" }) => {
 	return (
 		<section className={`activitieslist ${className}`}>
 			<div className="container">
 				<div className="textbox --mb --center">
-					<h2 className="heading --h2 textbox --center --capitalize">Previous class</h2>
+					<h2 className="heading --h2 textbox --center --capitalize">{text}</h2>
 				</div>
-				<div className="sliderpost prevclass">
-					<div className="list-card" id="prevclass">
+				<div className={`sliderpost ${id}`}>
+					<div className="list-card" id={`${id}`}>
 						<div className="card">
 							<div className="card__img">
 								<Link href="article-detail.html">

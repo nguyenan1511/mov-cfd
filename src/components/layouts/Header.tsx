@@ -8,28 +8,28 @@ const LISTMENU = [
 	{
 		link: "/about",
 		name: {
-			vi: "About MOV Vi",
+			vi: "Về chúng tôi",
 			en: "About MOV",
 		},
 	},
 	{
 		link: "/courses",
 		name: {
-			vi: "Our Programs Vi",
+			vi: "Chương trình",
 			en: "Our Programs",
 		},
 	},
 	{
 		link: "/activities",
 		name: {
-			vi: "Activities Vi",
+			vi: "Hoạt động",
 			en: "Activities",
 		},
 	},
 	{
 		link: "/knowledge",
 		name: {
-			vi: "Knowledge Hubs Vi",
+			vi: "Kiến thức",
 			en: "Knowledge Hubs",
 		},
 	},

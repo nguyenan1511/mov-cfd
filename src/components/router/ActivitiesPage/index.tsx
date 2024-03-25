@@ -5,8 +5,8 @@ const ActivitiesPage = ({ dataPage }: any) => {
 	return (
 		<>
 			<LatestActFeatured />
-			<ActivitiesList className="--pt" />
-			<ActivitiesList className="--ptb" />
+			<ActivitiesList className="--pt" id="prevclass" />
+			<ActivitiesList className="--ptb" id="otherclass" text="Other activities" />
 		</>
 	);
 };

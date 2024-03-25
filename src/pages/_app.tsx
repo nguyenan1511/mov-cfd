@@ -1,4 +1,4 @@
-import "../styles/tailwind.css";
+import "../styles/tailwind.scss";
 import "../../public/dest/style.min.css";
 import "../../public/dest/fonts.css";
 

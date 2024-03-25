@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const ListCourseHome = () => {
@@ -8,9 +9,9 @@ const ListCourseHome = () => {
 					<div className="slidercourses__inner" id="slidercourses">
 						<div className="course">
 							<div className="course__img">
-								<a href="course-detail.html">
-									<img src="./img/course-img1.jpg" alt="course-img" />
-								</a>
+								<Link href="course-detail.html">
+									<img src="/img/course-img1.jpg" alt="course-img" />
+								</Link>
 							</div>
 							<div className="course__info">
 								<h3 className="title heading --h3 --black-cl">Các khoá học sắp khai giảng</h3>
@@ -24,23 +25,23 @@ const ListCourseHome = () => {
 								</p>
 								<div className="teacher small">
 									<div className="teacher__img">
-										<img src="./img/img-lectur.jpg" alt="" />
+										<img src="/img/img-lectur.jpg" alt="" />
 									</div>
 									<div className="teacher__info">
 										<p className="teacher__info-name">Doan Nguyen</p>
 										<p className="teacher__info-rank">THS.NCS</p>
 									</div>
 								</div>
-								<a href="course-detail.html" className="btn btn-fill">
+								<Link href="course-detail.html" className="btn btn-fill">
 									Xem thêm
-								</a>
+								</Link>
 							</div>
 						</div>
 						<div className="course">
 							<div className="course__img">
-								<a href="course-detail.html">
-									<img src="./img/course-img1.jpg" alt="course-img" />
-								</a>
+								<Link href="course-detail.html">
+									<img src="/img/course-img1.jpg" alt="course-img" />
+								</Link>
 							</div>
 							<div className="course__info">
 								<h3 className="title heading --h3 --black-cl">Các khoá học sắp khai giảng</h3>
@@ -54,23 +55,23 @@ const ListCourseHome = () => {
 								</p>
 								<div className="teacher small">
 									<div className="teacher__img">
-										<img src="./img/img-lectur.jpg" alt="" />
+										<img src="/img/img-lectur.jpg" alt="" />
 									</div>
 									<div className="teacher__info">
 										<p className="teacher__info-name">Doan Nguyen</p>
 										<p className="teacher__info-rank">THS.NCS</p>
 									</div>
 								</div>
-								<a href="course-detail.html" className="btn btn-fill">
+								<Link href="course-detail.html" className="btn btn-fill">
 									Xem thêm
-								</a>
+								</Link>
 							</div>
 						</div>
 						<div className="course">
 							<div className="course__img">
-								<a href="course-detail.html">
-									<img src="./img/course-img1.jpg" alt="course-img" />
-								</a>
+								<Link href="course-detail.html">
+									<img src="/img/course-img1.jpg" alt="course-img" />
+								</Link>
 							</div>
 							<div className="course__info">
 								<h3 className="title heading --h3 --black-cl">Các khoá học sắp khai giảng</h3>
@@ -84,23 +85,23 @@ const ListCourseHome = () => {
 								</p>
 								<div className="teacher small">
 									<div className="teacher__img">
-										<img src="./img/img-lectur.jpg" alt="" />
+										<img src="/img/img-lectur.jpg" alt="" />
 									</div>
 									<div className="teacher__info">
 										<p className="teacher__info-name">Doan Nguyen</p>
 										<p className="teacher__info-rank">THS.NCS</p>
 									</div>
 								</div>
-								<a href="course-detail.html" className="btn btn-fill">
+								<Link href="course-detail.html" className="btn btn-fill">
 									Xem thêm
-								</a>
+								</Link>
 							</div>
 						</div>
 						<div className="course">
 							<div className="course__img">
-								<a href="course-detail.html">
-									<img src="./img/course-img1.jpg" alt="course-img" />
-								</a>
+								<Link href="course-detail.html">
+									<img src="/img/course-img1.jpg" alt="course-img" />
+								</Link>
 							</div>
 							<div className="course__info">
 								<h3 className="title heading --h3 --black-cl">Các khoá học sắp khai giảng</h3>
@@ -114,23 +115,23 @@ const ListCourseHome = () => {
 								</p>
 								<div className="teacher small">
 									<div className="teacher__img">
-										<img src="./img/img-lectur.jpg" alt="" />
+										<img src="/img/img-lectur.jpg" alt="" />
 									</div>
 									<div className="teacher__info">
 										<p className="teacher__info-name">Doan Nguyen</p>
 										<p className="teacher__info-rank">THS.NCS</p>
 									</div>
 								</div>
-								<a href="course-detail.html" className="btn btn-fill">
+								<Link href="course-detail.html" className="btn btn-fill">
 									Xem thêm
-								</a>
+								</Link>
 							</div>
 						</div>
 						<div className="course">
 							<div className="course__img">
-								<a href="course-detail.html">
-									<img src="./img/course-img1.jpg" alt="course-img" />
-								</a>
+								<Link href="course-detail.html">
+									<img src="/img/course-img1.jpg" alt="course-img" />
+								</Link>
 							</div>
 							<div className="course__info">
 								<h3 className="title heading --h3 --black-cl">Các khoá học sắp khai giảng</h3>
@@ -144,16 +145,16 @@ const ListCourseHome = () => {
 								</p>
 								<div className="teacher small">
 									<div className="teacher__img">
-										<img src="./img/img-lectur.jpg" alt="" />
+										<img src="/img/img-lectur.jpg" alt="" />
 									</div>
 									<div className="teacher__info">
 										<p className="teacher__info-name">Doan Nguyen</p>
 										<p className="teacher__info-rank">THS.NCS</p>
 									</div>
 								</div>
-								<a href="course-detail.html" className="btn btn-fill">
+								<Link href="course-detail.html" className="btn btn-fill">
 									Xem thêm
-								</a>
+								</Link>
 							</div>
 						</div>
 					</div>

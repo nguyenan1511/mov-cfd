@@ -42,11 +42,8 @@ const Meta = (props: IMetaProps) => {
 
 				<link rel="shortcut icon" type="image/png" sizes="32x32" href={`${router.basePath}/favicon.ico`} />
 				<link rel="shortcut icon" type="image/png" sizes="16x16" href={`${router.basePath}/favicon.ico`} />
-				<meta
-					name="viewport"
-					key="viewport"
-					content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-				/>
+
+				{/* <meta name="viewport" key="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" /> */}
 			</Head>
 
 			<NextSeo

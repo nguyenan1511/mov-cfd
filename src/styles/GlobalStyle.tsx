@@ -401,6 +401,14 @@ const GlobalStyle = () => {
 					}
 				}
 			}
+
+			.textbox-card {
+				&:hover {
+					&:after {
+						background-image: url("/img/card-bg.svg");
+					}
+				}
+			}
 		`}</style>
 	);
 };
