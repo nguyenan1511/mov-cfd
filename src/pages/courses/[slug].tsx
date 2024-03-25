@@ -14,11 +14,11 @@ const courseDetailPage: NextPage = (props: any) => {
 	const _metaData = {
 		metaTitle: props?.dataDetail?.metaTitle?.[router.locale as any],
 		metaDescription: props?.dataDetail?.metaDescription?.[router.locale as any],
-		metaImage: props?.dataDetail?.metaImage?.[router.locale as any],
+		metaImage: props?.dataDetail?.metaImage
 	};
 
 	return (
-		<MasterPage meta={_metaData}>
+		<MasterPage meta={_metaData} classNameHeader="--white">
 			<UICourseDetail dataPage={props?.dataDetail} />
 		</MasterPage>
 	);

@@ -10,6 +10,7 @@ interface IRootScroll {
 	hideHeader?: boolean;
 	hideFooter?: boolean;
 	hideBooking?: boolean;
+	classNameHeader?: string;
 }
 
 const RootScroll = (props: IRootScroll) => {
@@ -27,7 +28,7 @@ const RootScroll = (props: IRootScroll) => {
 		<div className="root">
 			<div ref={eleScroll} className="root-scroll">
 				<div className="topPage" id="topPage"></div>
-				<Header />
+				<Header classNameHeader={props?.classNameHeader} scrollTopPos={scrollTopPos} />
 				<main className="main min-h-screen">{props.children}</main>
 				<Footer />
 			</div>

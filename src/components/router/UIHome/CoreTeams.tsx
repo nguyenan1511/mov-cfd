@@ -1,64 +1,31 @@
+import { useStorage } from "@/components/context/StorageProvider";
 import { ArrowIcon } from "@/components/elements/Icon";
+import CoreTeamItems from "@/components/router/UIHome/CoreTeamItems";
 import React from "react";
 
-const CoreTeams = () => {
+const CoreTeams = ({ dataTeam }: any) => {
+	const { lang } = useStorage();
 	return (
 		<section className="coreteams --ptb">
 			<div className="textbox --mb --center">
-				<h2 className="heading --h2 textbox --center --capitalize">The Core team</h2>
+				<h2 className="heading --h2 textbox --center --capitalize">
+					{lang == "vi" ? "Thành viên chính" : "The Core team"}
+				</h2>
 			</div>
 			<div className="coreteams__slider">
 				<div className="container">
 					<div className="coreteams__wrap">
 						<div className="coreteams__inner" id="slidercoreteam">
-							<div className="course">
-								<div className="course__img">
-									<img src="/img/core-team-1.jpg" alt="" />
-								</div>
-								<div className="course__info">
-									<h2 className="heading --h3">Doan Nguyen</h2>
-									<p className="position heading --h5 --uppercase">THS.NCS</p>
-									<div className="desc">
-										Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-										doloremque laudantium perspiciatis unde omnis iste natus error.
-									</div>
-								</div>
-							</div>
-							<div className="course">
-								<div className="course__img">
-									<img src="/img/core-team-2.jpg" alt="" />
-								</div>
-								<div className="course__info">
-									<h2 className="heading --h3">Hung Vo</h2>
-									<p className="position heading --h5 --uppercase">THS.NCS</p>
-									<div className="desc">
-										Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-										doloremque laudantium perspiciatis unde omnis iste natus error.
-									</div>
-								</div>
-							</div>
-							<div className="course">
-								<div className="course__img">
-									<img src="/img/core-team-3.jpg" alt="" />
-								</div>
-								<div className="course__info">
-									<h2 className="heading --h3">Truong Bao Ngoc</h2>
-									<p className="position heading --h5 --uppercase">THS.NCS</p>
-									<div className="desc">
-										Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-										doloremque laudantium perspiciatis unde omnis iste natus error.
-									</div>
-								</div>
-							</div>
+							{dataTeam?.map((item: any, index: number) => <CoreTeamItems key={index} {...item} />)}
 						</div>
 						<div className="controlsslider">
-							<button className="btn btn-control --prev">
+							<button className="btn btn-control --prev" aria-label="prev">
 								<ArrowIcon />
 							</button>
 							<p className="sliderpaging">
 								<span className="current">1</span> of <span className="total">0</span>
 							</p>
-							<button className="btn btn-control --next">
+							<button className="btn btn-control --next" aria-label="next">
 								<ArrowIcon />
 							</button>
 						</div>

@@ -7,7 +7,9 @@ interface IContext {
 	isShowSearch: boolean;
 	setIsShowSearch: (props: any) => void;
 	lang: string;
+	loadedData: boolean;
 	setLang: (props: any) => void;
+	setLoadedData: (props: any) => void;
 }
 
 export const StorageContext = createContext<IContext | null>(null);
@@ -17,6 +19,9 @@ const StorageProvider = (props: any) => {
 
 	const router = useRouter();
 	const [isLoading, setIsLoading] = useState(false);
+
+	const [loadedData, setLoadedData] = useState<any>(false);
+
 	const [isShowSearch, setIsShowSearch] = useState(false);
 	const [lang, setLang] = useState("vi");
 
@@ -36,6 +41,8 @@ const StorageProvider = (props: any) => {
 				setIsShowSearch,
 				lang,
 				setLang,
+				loadedData,
+				setLoadedData,
 			}}
 			{...props}
 		></StorageContext.Provider>

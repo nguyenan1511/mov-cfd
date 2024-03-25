@@ -1,12 +1,17 @@
+import { useStorage } from "@/components/context/StorageProvider";
 import Link from "next/link";
 import React from "react";
 
 const OurPrograms = () => {
+	const { lang } = useStorage();
+
 	return (
-		<section className="ourprograms">
+		<section className="ourprograms --pb">
 			<div className="container">
 				<div className="textbox --mb --center">
-					<h2 className="heading --h2 textbox --center">Our Programs</h2>
+					<h2 className="heading --h2 textbox --center">
+						{lang == "vi" ? "Chương trình của chúng tôi" : "Our Programs"}
+					</h2>
 				</div>
 				<div className="scknowledgehub__list list-textbox-card">
 					<div className="textbox-card">

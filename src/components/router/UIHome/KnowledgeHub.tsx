@@ -1,77 +1,25 @@
+import { useStorage } from "@/components/context/StorageProvider";
+import KnowledgeHubItem from "@/components/router/UIHome/KnowledgeHubItem";
+import Link from "next/link";
 import React from "react";
 
-export const KnowledgeHub = () => {
+export const KnowledgeHub = ({ dataKnowledge }: any) => {
+	const { lang } = useStorage();
+
 	return (
 		<section className="scknowledgehub --ptb">
 			<div className="container">
 				<div className="textbox --mb --center">
-					<h2 className="heading --h2 textbox --center --capitalize">Knowledge Hubs</h2>
+					<h2 className="heading --h2 textbox --center --capitalize">
+						{lang == "vi" ? "Kiến thức" : "Knowledge Hubs"}
+					</h2>
 				</div>
 				<div className="scknowledgehub__list list-textbox-card">
-					<div className="textbox-card">
-						<h2 className="title">
-							<a href="#" className="heading --h4">
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit
-							</a>
-						</h2>
-						<p className="text --small">
-							Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-							laudantium
-						</p>
-						<h4 className="label-card btn btn-green">behaviour analysis</h4>
-						<a href="article-detail.html" className="btn-card btn btn-fill">
-							Xem thêm
-						</a>
-					</div>
-					<div className="textbox-card">
-						<h2 className="title">
-							<a href="#" className="heading --h4">
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit
-							</a>
-						</h2>
-						<p className="text --small">
-							Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-							laudantium
-						</p>
-						<h4 className="label-card btn btn-green">Autism</h4>
-						<a href="article-detail.html" className="btn-card btn btn-fill">
-							Xem thêm
-						</a>
-					</div>
-					<div className="textbox-card">
-						<h2 className="title">
-							<a href="#" className="heading --h4">
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit
-							</a>
-						</h2>
-						<p className="text --small">
-							Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-							laudantium
-						</p>
-						<h4 className="label-card btn btn-green">academic report</h4>
-						<a href="article-detail.html" className="btn-card btn btn-fill">
-							Xem thêm
-						</a>
-					</div>
-					<div className="textbox-card">
-						<h2 className="title">
-							<a href="#" className="heading --h4">
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit
-							</a>
-						</h2>
-						<p className="text --small">
-							Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-							laudantium
-						</p>
-						<h4 className="label-card btn btn-green">Autism</h4>
-						<a href="article-detail.html" className="btn-card btn btn-fill">
-							Xem thêm
-						</a>
-					</div>
+					{dataKnowledge?.map((item: any, index: number) => <KnowledgeHubItem key={index} {...item} />)}
 				</div>
-				<a href="course-detail.html" className="btnviewall btn btn-fill --center">
-					Các bài viết khác
-				</a>
+				<Link href="/knowledge" className="btnviewall btn btn-fill --center" aria-label="Các bài viết khác">
+					{lang == "vi" ? "Các bài viết khác" : "Learn More"}
+				</Link>
 			</div>
 		</section>
 	);

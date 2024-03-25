@@ -1,14 +1,21 @@
+import { useStorage } from "@/components/context/StorageProvider";
 import React from "react";
 
-const AboutContent = () => {
+const AboutContent = ({ dataPage }: any) => {
+	const { lang } = useStorage();
 	return (
-		<section className="aboutcontent">
+		<section className="aboutcontent --pb">
 			<div className="container">
 				<div className="aboutcontent__inner">
 					<div className="contentbox">
-						<h2 className="heading --h4">Mission</h2>
-						<div className="contentbox__text">
-							<p>
+						<h2 className="heading --h4">{dataPage?.[lang]?.title1}</h2>
+						<div
+							className="contentbox__text"
+							dangerouslySetInnerHTML={{
+								__html: dataPage?.[lang]?.description1,
+							}}
+						>
+							{/* <p>
 								Tại MOV, chúng tôi cam kết phát triển lĩnh vực Phân tích Hành vi Ứng dụng (ABA) tại Việt
 								Nam bằng cách chuyển ngữ các tài liệu và khóa học chất lượng cao. Mục tiêu của chúng tôi
 								là cung cấp giáo dục ABA chính xác về ngôn ngữ, phù hợp văn hóa và có ý nghĩa xã hội,
@@ -19,13 +26,18 @@ const AboutContent = () => {
 								kiến thức cần thiết để tạo ra ảnh hưởng ý nghĩa trong cộng đồng, đảm bảo rằng đào tạo
 								của chúng tôi không chỉ hiệu quả mà còn hài hòa sâu sắc với giá trị văn hóa và nhu cầu
 								của Việt Nam.
-							</p>
+							</p> */}
 						</div>
 					</div>
 					<div className="contentbox">
-						<h2 className="heading --h4">Vision</h2>
-						<div className="contentbox__text">
-							<p>
+						<h2 className="heading --h4">{dataPage?.[lang]?.title2}</h2>
+						<div
+							className="contentbox__text"
+							dangerouslySetInnerHTML={{
+								__html: dataPage?.[lang]?.description2,
+							}}
+						>
+							{/* <p>
 								Tại MOV, chúng tôi cam kết phát triển lĩnh vực Phân tích Hành vi Ứng dụng (ABA) tại Việt
 								Nam bằng cách chuyển ngữ các tài liệu và khóa học chất lượng cao. Mục tiêu của chúng tôi
 								là cung cấp giáo dục ABA chính xác về ngôn ngữ, phù hợp văn hóa và có ý nghĩa xã hội,
@@ -36,7 +48,7 @@ const AboutContent = () => {
 								kiến thức cần thiết để tạo ra ảnh hưởng ý nghĩa trong cộng đồng, đảm bảo rằng đào tạo
 								của chúng tôi không chỉ hiệu quả mà còn hài hòa sâu sắc với giá trị văn hóa và nhu cầu
 								của Việt Nam.
-							</p>
+							</p> */}
 						</div>
 					</div>
 				</div>

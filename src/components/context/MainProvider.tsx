@@ -1,10 +1,12 @@
 /* eslint-disable @typescript-eslint/no-use-before-define */
+import { useStorage } from "@/components/context/StorageProvider";
 import asset from "@/plugins/asset";
 import { animated, useSpring } from "@react-spring/web";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import Head from "next/head";
 import { useRouter } from "next/router";
-import { createContext, useContext, useEffect } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -22,6 +24,10 @@ const MainProvider: React.FC<Props> = ({ children }) => {
 	const [stylesLoading, setStylesLoading] = useSpring(() => ({
 		from: { opacity: 1, zIndex: 99999 },
 	}));
+
+	const [scriptSlider, setScriptSlider] = useState<any>();
+
+	const { loadedData } = useStorage();
 
 	const router = useRouter();
 
@@ -107,8 +113,20 @@ const MainProvider: React.FC<Props> = ({ children }) => {
 		if (scrollTo) scrollTo.scrollIntoView({ block: "start", behavior: "smooth" });
 	}, [router.asPath]);
 
+	useEffect(() => {
+		if (!router?.isReady) {
+			return;
+		}
+		if (loadedData) {
+			setTimeout(() => {
+				setScriptSlider(<script async src={asset("/dest/main.js")}></script>);
+			}, 500);
+		}
+	}, [router?.isReady, loadedData]);
+
 	return (
 		<MainContext.Provider value={{}}>
+			<Head>{scriptSlider}</Head>
 			{/* <animated.div
 				style={stylesLoading}
 				className={`loadingPage flexCenter fixed inset-0 z-[999] h-screen w-screen bg-[#e0f6f6]`}

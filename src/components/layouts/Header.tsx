@@ -2,7 +2,7 @@ import { useStorage } from "@/components/context/StorageProvider";
 import { Logo } from "@/components/elements/Icon";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import React from "react";
+import React, { memo, useEffect, useState } from "react";
 
 const LISTMENU = [
 	{
@@ -15,7 +15,7 @@ const LISTMENU = [
 	{
 		link: "/courses",
 		name: {
-			vi: "Chương trình",
+			vi: "Khóa Học",
 			en: "Our Programs",
 		},
 	},
@@ -35,8 +35,9 @@ const LISTMENU = [
 	},
 ];
 
-const Header = () => {
+const Header = ({ classNameHeader = "", scrollTopPos }: any) => {
 	const { setLang, lang } = useStorage();
+	const [fixHeader, setFixHeader] = useState(false);
 
 	const { pathname, push, asPath } = useRouter();
 
@@ -47,11 +48,19 @@ const Header = () => {
 		setLang(lang);
 	};
 
+	useEffect(() => {
+		if (scrollTopPos > 100) {
+			setFixHeader(true);
+		} else {
+			setFixHeader(false);
+		}
+	}, [scrollTopPos]);
+
 	return (
-		<header className="header">
+		<header className={`header ${fixHeader ? "" : classNameHeader}`}>
 			<div className="container">
 				<div className="header__left">
-					<Link href="/">
+					<Link href="/" aria-label="Read more about Seminole tax hike">
 						<Logo />
 					</Link>
 				</div>
@@ -93,4 +102,4 @@ const Header = () => {
 	);
 };
 
-export default Header;
+export default memo(Header);

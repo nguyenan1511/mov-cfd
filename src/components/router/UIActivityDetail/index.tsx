@@ -1,6 +1,6 @@
 import React from "react";
 
-const UIKnowledge = ({ dataPage }: any) => {
+const UIActivityDetail = () => {
 	return (
 		<>
 			<section className="articledetail --ptb">
@@ -128,4 +128,4 @@ const UIKnowledge = ({ dataPage }: any) => {
 	);
 };
 
-export default UIKnowledge;
+export default UIActivityDetail;

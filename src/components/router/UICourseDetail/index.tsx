@@ -31,7 +31,6 @@ const UICourseDetail = ({ dataPage }: any) => {
 
 	const { image, content, name, title, description, required, contact } = dataPage || {};
 
-	console.log("🚀dataPage---->", dataPage);
 
 	return (
 		<>

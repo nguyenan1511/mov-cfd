@@ -10,24 +10,15 @@ const UIAbout = dynamic(() => import("@/components/router/UIAbout"), { ssr: fals
 const About: NextPage = (props: any) => {
 	const router = useRouter();
 
+	const _metaData = {
+		metaTitle: props?.dataDetail?.metaTitle?.[router.locale as any],
+		metaDescription: props?.dataDetail?.metaDescription?.[router.locale as any],
+		metaImage: props?.dataDetail?.metaImage,
+	};
+
 	return (
-		<MasterPage
-			meta={{
-				metaTitle:
-					router?.locale === "vi"
-						? props?.dataDetail?.data?.vi?.metaTitle
-						: props?.dataDetail?.data?.en?.metaTitle,
-				metaDescription:
-					router?.locale === "vi"
-						? props?.dataDetail?.data?.vi?.metaDescription
-						: props?.dataDetail?.data?.en?.metaDescription,
-				metaImage:
-					router?.locale === "vi"
-						? props?.dataDetail?.data?.vi?.metaImage
-						: props?.dataDetail?.data?.en?.metaImage,
-			}}
-		>
-			<UIAbout />
+		<MasterPage meta={_metaData}>
+			<UIAbout dataPage={props?.dataDetail?.data} />
 		</MasterPage>
 	);
 };

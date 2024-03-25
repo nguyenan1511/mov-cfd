@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-use-before-define */
 import { createContext, useCallback, useContext } from "react";
 
-var Flickity = require("flickity");
 export const MainJsContext = createContext<any>(null);
 
 const MainJsProvider: React.FC<any> = ({ children }) => {

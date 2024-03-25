@@ -21,40 +21,27 @@ type IMainProps = {
 	meta?: IMETA;
 	children?: ReactNode;
 	hideBooking?: boolean;
+	className?: string;
+	classNameHeader?: string;
 };
 
 const queryClient = new QueryClient();
 
 const MasterPage = (props: IMainProps) => {
-	const router = useRouter();
 	const title = props.meta?.metaTitle || "";
 	const description = props.meta?.metaDescription || "";
 	const image = props.meta?.metaImage || "";
-	const [main, setMain] = useState<any>(<></>);
-	const [main1, setMain1] = useState<any>(<></>);
-
-	useEffect(() => {
-		setMain(<script src={asset("/dest/jsmain.min.js")}></script>);
-		setTimeout(() => {
-			setMain1(<script src={asset("/dest/main.js")}></script>);
-		}, 500);
-	}, [router?.pathname]);
 
 	return (
-		<>
-			<Head>{main}</Head>
-			<Head>{main1}</Head>
-
-			<div id="wrapPage">
-				<Meta title={title} description={description} image={image} />
-				<GlobalStyle />
-				<QueryClientProvider client={queryClient}>
-					<Providers {...props}>
-						<RootScroll {...props}></RootScroll>
-					</Providers>
-				</QueryClientProvider>
-			</div>
-		</>
+		<div id="wrapPage" className={props.className}>
+			<Meta title={title} description={description} image={image} />
+			<GlobalStyle />
+			<QueryClientProvider client={queryClient}>
+				<Providers {...props}>
+					<RootScroll {...props}></RootScroll>
+				</Providers>
+			</QueryClientProvider>
+		</div>
 	);
 };
 

@@ -1,31 +1,32 @@
-// import { useRouter } from "next/router";
-import type { NextPage } from "next";
-import dynamic from "next/dynamic";
-
 import MasterPage from "@/components/layouts/MasterPage";
 import ApiCall from "@/plugins/api-call/ApiCall";
+import type { NextPage } from "next";
+import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 
-const ActivitiesPage = dynamic(() => import("@/components/router/ActivitiesPage"), { ssr: false });
+const UICourseDetail = dynamic(() => import("@/components/router/UICourseDetail"), {
+	ssr: false,
+});
 
-const contact: NextPage = (props: any) => {
+const activitiesDetailPage: NextPage = (props: any) => {
 	const router = useRouter();
 
 	const _metaData = {
 		metaTitle: props?.dataDetail?.metaTitle?.[router.locale as any],
 		metaDescription: props?.dataDetail?.metaDescription?.[router.locale as any],
-		metaImage: props?.dataDetail?.metaImage?.[router.locale as any],
+		metaImage: props?.dataDetail?.metaImage,
 	};
+
 	return (
-		<MasterPage meta={_metaData}>
-			<ActivitiesPage dataPage={props?.dataDetail} />
+		<MasterPage meta={_metaData} classNameHeader="--white">
+			<UICourseDetail dataPage={props?.dataDetail} />
 		</MasterPage>
 	);
 };
 
-export async function getServerSideProps() {
+export async function getServerSideProps({ query }: any) {
 	let res = await ApiCall({
-		path: `/api/v1/pages/HOME`,
+		path: `/api/v1/activities/${query?.slug}`,
 	});
 
 	let dataDetail = {};
@@ -40,4 +41,4 @@ export async function getServerSideProps() {
 	};
 }
 
-export default contact;
+export default activitiesDetailPage;

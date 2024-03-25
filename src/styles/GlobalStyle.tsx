@@ -10,33 +10,6 @@ import asset from "@/plugins/asset";
 const GlobalStyle = () => {
 	return (
 		<style jsx global>{`
-			@font-face {
-				font-family: "GilroyBold";
-				src:
-					url(${asset("/fonts/SVN-GilroyBold.woff")}) format("woff2"),
-					url(${asset("/fonts/SVN-GilroyBold.woff")}) format("woff");
-				font-weight: bold;
-				font-style: normal;
-				font-display: swap;
-			}
-			@font-face {
-				font-family: "GilroyLight";
-				src:
-					url(${asset("/fonts/SVN-GilroyLight.woff")}) format("woff2"),
-					url(${asset("/fonts/SVN-GilroyLight.woff2")}) format("woff");
-				font-weight: bold;
-				font-style: normal;
-				font-display: swap;
-			}
-			@font-face {
-				font-family: "GilroyR";
-				src:
-					url(${asset("/fonts/SVN-GilroyMedium.woff")}) format("woff2"),
-					url(${asset("/fonts/SVN-GilroyMedium.woff2")}) format("woff");
-				font-weight: bold;
-				font-style: normal;
-				font-display: swap;
-			}
 
 			@mixin customscroll($width: 3px, $bgTrack: transparent, $bgThumb: #41ada0) {
 				&::-webkit-scrollbar {
@@ -58,7 +31,7 @@ const GlobalStyle = () => {
 			}
 			html,
 			body {
-				background: #fff;
+				linear-gradient(0deg, rgba(255, 255, 255, 0) 0%, rgba(255, 247, 232, 1) 100%);
 				height: 100dvh;
 				overflow-x: hidden;
 			}
@@ -408,6 +381,9 @@ const GlobalStyle = () => {
 						background-image: url("/img/card-bg.svg");
 					}
 				}
+			}
+			.card__info .heading{
+				display: -webkit-box !important;
 			}
 		`}</style>
 	);

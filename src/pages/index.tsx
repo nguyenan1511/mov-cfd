@@ -1,4 +1,5 @@
 import MasterPage from "@/components/layouts/MasterPage";
+import ApiCall from "@/plugins/api-call/ApiCall";
 import type { NextPage } from "next";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
@@ -10,43 +11,34 @@ const UIHome = dynamic(() => import("@/components/router/UIHome"), {
 const Home: NextPage = (props: any) => {
 	const router = useRouter();
 
+	const _metaData = {
+		metaTitle: props?.dataDetail?.metaTitle?.[router.locale as any],
+		metaDescription: props?.dataDetail?.metaDescription?.[router.locale as any],
+		metaImage: props?.dataDetail?.metaImage,
+	};
+
 	return (
-		<MasterPage
-			meta={{
-				metaTitle:
-					router?.locale === "vi"
-						? props?.dataDetail?.data?.vi?.metaTitle
-						: props?.dataDetail?.data?.en?.metaTitle,
-				metaDescription:
-					router?.locale === "vi"
-						? props?.dataDetail?.data?.vi?.metaDescription
-						: props?.dataDetail?.data?.en?.metaDescription,
-				metaImage:
-					router?.locale === "vi"
-						? props?.dataDetail?.data?.vi?.metaImage
-						: props?.dataDetail?.data?.en?.metaImage,
-			}}
-		>
-			<UIHome />
+		<MasterPage className="main" meta={_metaData}>
+			<UIHome dataPage={props?.dataDetail?.data} />
 		</MasterPage>
 	);
 };
 
-// export async function getServerSideProps() {
-//   let res = await ApiCall({
-//     path: `/api/v1/pages/HOME`,
-//   });
+export async function getServerSideProps() {
+	let res = await ApiCall({
+		path: `/api/v1/pages/HOME`,
+	});
 
-//   let dataDetail = {};
-//   if (res.data) {
-//     dataDetail = res.data;
-//   }
+	let dataDetail = {};
+	if (res.data) {
+		dataDetail = res.data;
+	}
 
-//   return {
-//     props: {
-//       dataDetail,
-//     },
-//   };
-// }
+	return {
+		props: {
+			dataDetail,
+		},
+	};
+}
 
 export default Home;

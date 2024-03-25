@@ -10,6 +10,7 @@ class MyDocument extends Document {
 			<Html lang={AppConfig.locale}>
 				<Head />
 				<body>
+					<script async src={asset("/dest/jsmain.min.js")}></script>
 					<Main />
 					<NextScript />
 				</body>

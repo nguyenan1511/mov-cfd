@@ -11,7 +11,7 @@ import StorageProvider from "@/components/context/StorageProvider";
 const Providers = (props: any) => {
 	return (
 		<Compose
-			components={[MainProvider, ListenerProvider, StorageProvider, ApiProvider, MainApiProvider, MainJsProvider]}
+			components={[ApiProvider, StorageProvider, MainProvider, ListenerProvider, MainApiProvider, MainJsProvider]}
 			{...props}
 		></Compose>
 	);

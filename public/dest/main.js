@@ -8,6 +8,7 @@ $(document).ready(function () {
 				contain: true,
 				prevNextButtons: false,
 				pageDots: false,
+				friction: 0.5,
 				on: {
 					ready: function () {
 						updateCurrentSlider(1);

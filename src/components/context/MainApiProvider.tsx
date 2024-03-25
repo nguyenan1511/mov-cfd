@@ -24,7 +24,50 @@ const MainApiProvider: React.FC<Props> = ({ children }) => {
 		});
 	};
 
-	return <MainApiContext.Provider value={{ getListCourse, getDataPage }}>{children}</MainApiContext.Provider>;
+	const getDataKnowledge = async (query: string) => {
+		return GET({
+			path: `/api/v1/knowledges${query}`,
+		});
+	};
+
+	const getDataPartner = async () => {
+		return GET({
+			path: `/api/v1/partners`,
+		});
+	};
+
+	const getDataTeam = async () => {
+		return GET({
+			path: `/api/v1/teams`,
+		});
+	};
+
+	const getDataActivity = async (query?: any) => {
+		return GET({
+			path: `/api/v1/activities${query ? query : ""}`,
+		});
+	};
+	const getDataVolunteers = async (query?: any) => {
+		return GET({
+			path: `/api/v1/volunteers${query ? query : ""}`,
+		});
+	};
+
+	return (
+		<MainApiContext.Provider
+			value={{
+				getListCourse,
+				getDataPage,
+				getDataPartner,
+				getDataTeam,
+				getDataKnowledge,
+				getDataActivity,
+				getDataVolunteers,
+			}}
+		>
+			{children}
+		</MainApiContext.Provider>
+	);
 };
 
 export default MainApiProvider;
