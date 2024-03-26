@@ -4,7 +4,7 @@ import type { NextPage } from "next";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 
-const UIKnowledgeDetail = dynamic(() => import("@/components/router/UIKnowledgeDetail"), {
+const UIArticleDetail = dynamic(() => import("@/components/router/UIArticleDetail"), {
 	ssr: false,
 });
 
@@ -14,12 +14,12 @@ const knowledgeDetailPage: NextPage = (props: any) => {
 	const _metaData = {
 		metaTitle: props?.dataDetail?.metaTitle?.[router.locale as any],
 		metaDescription: props?.dataDetail?.metaDescription?.[router.locale as any],
-		metaImage: props?.dataDetail?.metaImage
+		metaImage: props?.dataDetail?.metaImage,
 	};
 
 	return (
-		<MasterPage meta={_metaData}>
-			<UIKnowledgeDetail dataPage={props?.dataDetail} />
+		<MasterPage meta={_metaData} className="articledetailpage">
+			<UIArticleDetail dataPage={props?.dataDetail} type="knowledge" />
 		</MasterPage>
 	);
 };

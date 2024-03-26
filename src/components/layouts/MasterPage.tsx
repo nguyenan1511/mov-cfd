@@ -1,11 +1,8 @@
 import dynamic from "next/dynamic";
-import { useEffect, useState, type ReactNode } from "react";
+import { type ReactNode } from "react";
 
 import { Meta } from "@/components/layouts/Meta";
-import asset from "@/plugins/asset";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import Head from "next/head";
-import { useRouter } from "next/router";
 
 const GlobalStyle = dynamic(() => import("@/styles/GlobalStyle"), { ssr: false });
 const Providers = dynamic(() => import("@/components/context/compose/Providers"), { ssr: false });

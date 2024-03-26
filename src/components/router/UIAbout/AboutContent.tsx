@@ -17,7 +17,7 @@ const AboutContent = ({ dataPage }: any) => {
 						></div>
 					</div>
 					<div className="contentbox ">
-						<h2 className="heading --h4">{dataPage?.[lang]?.title2}</h2>
+						<h2 className="heading --h4 --last">{dataPage?.[lang]?.title2}</h2>
 						<div
 							className="contentbox__text text-justify"
 							dangerouslySetInnerHTML={{

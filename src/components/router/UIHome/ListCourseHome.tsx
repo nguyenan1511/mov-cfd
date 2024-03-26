@@ -7,7 +7,8 @@ const ListCourseHome = ({ dataCourse }: any) => {
 			<div className="container">
 				<div className="slidercourses__wrap">
 					<div className="slidercourses__inner" id="slidercourses">
-						{dataCourse?.map((item: any, index: number) => <Course key={index} {...item} />)}
+						{dataCourse?.length > 0 &&
+							dataCourse?.map((item: any, index: number) => <Course key={index} {...item} />)}
 					</div>
 					<div className="controlsslider">
 						<button className="btn btn-control --prev" aria-label="prev">

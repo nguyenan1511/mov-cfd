@@ -7,9 +7,6 @@ import useScroll from "@/plugins/hooks/useScroll";
 
 interface IRootScroll {
 	children?: ReactNode;
-	hideHeader?: boolean;
-	hideFooter?: boolean;
-	hideBooking?: boolean;
 	classNameHeader?: string;
 }
 
@@ -25,14 +22,12 @@ const RootScroll = (props: IRootScroll) => {
 	});
 
 	return (
-		<div className="root">
-			<div ref={eleScroll} className="root-scroll">
-				<div className="topPage" id="topPage"></div>
-				<Header classNameHeader={props?.classNameHeader} scrollTopPos={scrollTopPos} />
-				<main className="main min-h-screen">{props.children}</main>
-				<Footer />
-			</div>
-		</div>
+		<>
+			<div className="topPage" id="topPage"></div>
+			<Header classNameHeader={props?.classNameHeader} scrollTopPos={scrollTopPos} />
+			<main className="main min-h-screen">{props.children}</main>
+			<Footer />
+		</>
 	);
 };
 

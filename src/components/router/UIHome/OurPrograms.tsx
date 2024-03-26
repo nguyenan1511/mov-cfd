@@ -24,7 +24,7 @@ const OurPrograms = () => {
 							Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
 							laudantium
 						</p>
-						<Link href="article-detail.html" className="btn-card btn btn-fill">
+						<Link href="#" className="btn-card btn btn-fill">
 							Xem thêm
 						</Link>
 					</div>
@@ -38,7 +38,7 @@ const OurPrograms = () => {
 							Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
 							laudantium
 						</p>
-						<Link href="article-detail.html" className="btn-card btn btn-fill">
+						<Link href="#" className="btn-card btn btn-fill">
 							Xem thêm
 						</Link>
 					</div>
@@ -52,7 +52,7 @@ const OurPrograms = () => {
 							Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
 							laudantium
 						</p>
-						<Link href="article-detail.html" className="btn-card btn btn-fill">
+						<Link href="#" className="btn-card btn btn-fill">
 							Xem thêm
 						</Link>
 					</div>
@@ -66,7 +66,7 @@ const OurPrograms = () => {
 							Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
 							laudantium
 						</p>
-						<Link href="article-detail.html" className="btn-card btn btn-fill">
+						<Link href="#" className="btn-card btn btn-fill">
 							Xem thêm
 						</Link>
 					</div>

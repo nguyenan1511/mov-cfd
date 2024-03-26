@@ -4,7 +4,7 @@ import type { NextPage } from "next";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 
-const UICourseDetail = dynamic(() => import("@/components/router/UICourseDetail"), {
+const UIArticleDetail = dynamic(() => import("@/components/router/UIArticleDetail"), {
 	ssr: false,
 });
 
@@ -18,8 +18,8 @@ const activitiesDetailPage: NextPage = (props: any) => {
 	};
 
 	return (
-		<MasterPage meta={_metaData} classNameHeader="--white">
-			<UICourseDetail dataPage={props?.dataDetail} />
+		<MasterPage meta={_metaData} className="articledetailpage">
+			<UIArticleDetail dataPage={props?.dataDetail} type="activities" />
 		</MasterPage>
 	);
 };

@@ -1,9 +1,50 @@
+import { useMainApi } from "@/components/context/MainApiProvider";
 import { useStorage } from "@/components/context/StorageProvider";
+import KnowledgeHubItem from "@/components/router/UIHome/KnowledgeHubItem";
+import { TIME_STALE } from "@/constant";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const UIKnowledge = ({ dataPage }: any) => {
 	const { lang } = useStorage();
+	const { getDataCategoryKnowledge, getDataKnowledge } = useMainApi();
+
+	const [category, setCategory] = useState("");
+
+	const { data: dataCategory } = useQuery({
+		queryFn: async () => {
+			const res = await getDataCategoryKnowledge();
+			if (res) {
+				return res?.data?.knowledges;
+			}
+			return null;
+		},
+		queryKey: ["cateKnowledge"],
+		staleTime: TIME_STALE, // 60 seconds
+	});
+
+	const { data: dataKnowledge, mutateAsync: fetchDataKnowledge } = useMutation({
+		mutationFn: async (data: any) => {
+			const res = await getDataKnowledge(`?category=${data?.category}`);
+			if (res?.status) {
+				return res?.data?.knowledges;
+			}
+			return [];
+		},
+	});
+
+	useEffect(() => {
+		if (category) {
+			fetchDataKnowledge({ category: category });
+		}
+	}, [category]);
+
+	useEffect(() => {
+		if (dataCategory?.length) {
+			setCategory(dataCategory?.[0]?.id);
+		}
+	}, [dataCategory]);
 
 	return (
 		<section className="scknowledgehub --ptb">
@@ -13,261 +54,26 @@ const UIKnowledge = ({ dataPage }: any) => {
 				</h1>
 				<div className="scknowledgehub__tabshub">
 					<div className="scknowledgehub__tabshub-inner">
-						<div className="tab active" data-tab="Autism">
-							Autism<sup>(04)</sup>
-						</div>
-						<div className="tab" data-tab="Behaviour">
-							Behaviour analysis with science<sup>(16)</sup>
-						</div>
-						<div className="tab" data-tab="Academic">
-							Academic report<sup>(08)</sup>
-						</div>
-						<div className="tab" data-tab="Scientific">
-							Scientific proven<sup>(02)</sup>
-						</div>
+						{dataCategory?.length > 0
+							? dataCategory?.map((item: any, index: number) => (
+									<div
+										className={`tab ${category == item?.id ? "active" : ""}`}
+										key={index}
+										onClick={() => setCategory(item?.id)}
+									>
+										{item?.name?.[lang]}
+										<sup>(04)</sup>
+									</div>
+							  ))
+							: ""}
 					</div>
 				</div>
 				<div className="scknowledgehub__list list-textbox-card">
-					<div className="textbox-card">
-						<h2 className="title">
-							<Link href="/knowledge/slug" className="heading --h4">
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit
-							</Link>
-						</h2>
-						<p className="text --small">
-							Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-							laudantium
-						</p>
-						<h4 className="label-card btn btn-green">behaviour analysis</h4>
-						<a href="article-detail.html" className="btn-card btn btn-fill">
-							Xem thêm
-						</a>
-					</div>
-					<div className="textbox-card">
-						<h2 className="title">
-							<Link href="/knowledge/slug" className="heading --h4">
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit
-							</Link>
-						</h2>
-						<p className="text --small">
-							Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-							laudantium
-						</p>
-						<h4 className="label-card btn btn-green">Autism</h4>
-						<a href="article-detail.html" className="btn-card btn btn-fill">
-							Xem thêm
-						</a>
-					</div>
-					<div className="textbox-card">
-						<h2 className="title">
-							<Link href="/knowledge/slug" className="heading --h4">
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit
-							</Link>
-						</h2>
-						<p className="text --small">
-							Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-							laudantium
-						</p>
-						<h4 className="label-card btn btn-green">Autism</h4>
-						<a href="article-detail.html" className="btn-card btn btn-fill">
-							Xem thêm
-						</a>
-					</div>
-					<div className="textbox-card">
-						<h2 className="title">
-							<Link href="/knowledge/slug" className="heading --h4">
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit
-							</Link>
-						</h2>
-						<p className="text --small">
-							Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-							laudantium
-						</p>
-						<h4 className="label-card btn btn-green">academic report</h4>
-						<a href="article-detail.html" className="btn-card btn btn-fill">
-							Xem thêm
-						</a>
-					</div>
-					<div className="textbox-card">
-						<h2 className="title">
-							<Link href="/knowledge/slug" className="heading --h4">
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit
-							</Link>
-						</h2>
-						<p className="text --small">
-							Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-							laudantium
-						</p>
-						<h4 className="label-card btn btn-green">Autism</h4>
-						<a href="article-detail.html" className="btn-card btn btn-fill">
-							Xem thêm
-						</a>
-					</div>
-					<div className="textbox-card">
-						<h2 className="title">
-							<Link href="/knowledge/slug" className="heading --h4">
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit
-							</Link>
-						</h2>
-						<p className="text --small">
-							Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-							laudantium
-						</p>
-						<h4 className="label-card btn btn-green">academic report</h4>
-						<a href="article-detail.html" className="btn-card btn btn-fill">
-							Xem thêm
-						</a>
-					</div>
-					<div className="textbox-card">
-						<h2 className="title">
-							<Link href="/knowledge/slug" className="heading --h4">
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit
-							</Link>
-						</h2>
-						<p className="text --small">
-							Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-							laudantium
-						</p>
-						<h4 className="label-card btn btn-green">Autism</h4>
-						<a href="article-detail.html" className="btn-card btn btn-fill">
-							Xem thêm
-						</a>
-					</div>
-					<div className="textbox-card">
-						<h2 className="title">
-							<Link href="/knowledge/slug" className="heading --h4">
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit
-							</Link>
-						</h2>
-						<p className="text --small">
-							Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-							laudantium
-						</p>
-						<h4 className="label-card btn btn-green">Autism</h4>
-						<a href="article-detail.html" className="btn-card btn btn-fill">
-							Xem thêm
-						</a>
-					</div>
-					<div className="textbox-card">
-						<h2 className="title">
-							<Link href="/knowledge/slug" className="heading --h4">
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit
-							</Link>
-						</h2>
-						<p className="text --small">
-							Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-							laudantium
-						</p>
-						<h4 className="label-card btn btn-green">Autism</h4>
-						<a href="article-detail.html" className="btn-card btn btn-fill">
-							Xem thêm
-						</a>
-					</div>
-					<div className="textbox-card">
-						<h2 className="title">
-							<Link href="/knowledge/slug" className="heading --h4">
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit
-							</Link>
-						</h2>
-						<p className="text --small">
-							Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-							laudantium
-						</p>
-						<h4 className="label-card btn btn-green">academic report</h4>
-						<a href="article-detail.html" className="btn-card btn btn-fill">
-							Xem thêm
-						</a>
-					</div>
-					<div className="textbox-card">
-						<h2 className="title">
-							<Link href="/knowledge/slug" className="heading --h4">
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit
-							</Link>
-						</h2>
-						<p className="text --small">
-							Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-							laudantium
-						</p>
-						<h4 className="label-card btn btn-green">Autism</h4>
-						<a href="article-detail.html" className="btn-card btn btn-fill">
-							Xem thêm
-						</a>
-					</div>
-					<div className="textbox-card">
-						<h2 className="title">
-							<Link href="/knowledge/slug" className="heading --h4">
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit
-							</Link>
-						</h2>
-						<p className="text --small">
-							Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-							laudantium
-						</p>
-						<h4 className="label-card btn btn-green">Autism</h4>
-						<a href="article-detail.html" className="btn-card btn btn-fill">
-							Xem thêm
-						</a>
-					</div>
-					<div className="textbox-card">
-						<h2 className="title">
-							<Link href="/knowledge/slug" className="heading --h4">
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit
-							</Link>
-						</h2>
-						<p className="text --small">
-							Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-							laudantium
-						</p>
-						<h4 className="label-card btn btn-green">Autism</h4>
-						<a href="article-detail.html" className="btn-card btn btn-fill">
-							Xem thêm
-						</a>
-					</div>
-					<div className="textbox-card">
-						<h2 className="title">
-							<Link href="/knowledge/slug" className="heading --h4">
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit
-							</Link>
-						</h2>
-						<p className="text --small">
-							Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-							laudantium
-						</p>
-						<h4 className="label-card btn btn-green">Autism</h4>
-						<a href="article-detail.html" className="btn-card btn btn-fill">
-							Xem thêm
-						</a>
-					</div>
-					<div className="textbox-card">
-						<h2 className="title">
-							<Link href="/knowledge/slug" className="heading --h4">
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit
-							</Link>
-						</h2>
-						<p className="text --small">
-							Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-							laudantium
-						</p>
-						<h4 className="label-card btn btn-green">Autism</h4>
-						<a href="article-detail.html" className="btn-card btn btn-fill">
-							Xem thêm
-						</a>
-					</div>
-					<div className="textbox-card">
-						<h2 className="title">
-							<Link href="/knowledge/slug" className="heading --h4">
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit
-							</Link>
-						</h2>
-						<p className="text --small">
-							Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-							laudantium
-						</p>
-						<h4 className="label-card btn btn-green">Autism</h4>
-						<a href="article-detail.html" className="btn-card btn btn-fill">
-							Xem thêm
-						</a>
-					</div>
+					{dataKnowledge?.length > 0 ? (
+						dataKnowledge?.map((item: any, index: number) => <KnowledgeHubItem key={index} {...item} />)
+					) : (
+						<p>{lang == "vi" ? "Chưa tìm thấy dữ liệu" : "No data"}</p>
+					)}
 				</div>
 			</div>
 		</section>

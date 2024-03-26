@@ -10,6 +10,7 @@ const Course = (props: any) => {
 
 	const _team = teams?.[0] || {};
 
+
 	const _link = slug?.[lang] ? `/courses/${slug?.[lang]}` : "#";
 
 	return (

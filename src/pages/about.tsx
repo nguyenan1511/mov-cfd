@@ -17,7 +17,7 @@ const About: NextPage = (props: any) => {
 	};
 
 	return (
-		<MasterPage meta={_metaData}>
+		<MasterPage meta={_metaData} className="aboutcontent">
 			<UIAbout dataPage={props?.dataDetail?.data} />
 		</MasterPage>
 	);

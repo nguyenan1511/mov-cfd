@@ -53,6 +53,11 @@ const MainApiProvider: React.FC<Props> = ({ children }) => {
 			path: `/api/v1/activity-categories?orderBy=sortOrder&order=1`,
 		});
 	};
+	const getDataCategoryKnowledge = async () => {
+		return GET({
+			path: `/api/v1/knowledge-categories?orderBy=sortOrder&order=1`,
+		});
+	};
 
 	const getDataVolunteers = async (query?: any) => {
 		return GET({
@@ -71,6 +76,7 @@ const MainApiProvider: React.FC<Props> = ({ children }) => {
 				getDataActivity,
 				getDataVolunteers,
 				getCategoryActivity,
+				getDataCategoryKnowledge,
 			}}
 		>
 			{children}

@@ -11,7 +11,7 @@ const LatestActivities = ({ dataActivity }: any) => {
 			<div className="container">
 				<div className="textbox --mb --center">
 					<h2 className="heading --h2 textbox --center --capitalize">
-						{lang == "vi" ? "Hoạt động mới nhất" : "Latest Activities"}
+						{lang == "vi" ? "Hoạt động gần đây" : "Latest Activities"}
 					</h2>
 				</div>
 				<div className="sliderpost">

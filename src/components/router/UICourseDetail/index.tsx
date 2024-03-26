@@ -5,9 +5,12 @@ const nl2br = require("react-nl2br");
 import $ from "jquery";
 import Accordion from "@/components/router/UICourseDetail/Accordion";
 import Link from "next/link";
+import { useWindowSize } from "usehooks-ts";
 
 const UICourseDetail = ({ dataPage }: any) => {
 	const { lang } = useStorage();
+
+	const { width } = useWindowSize();
 
 	useEffect(() => {
 		if (typeof window == "undefined") return;
@@ -45,12 +48,12 @@ const UICourseDetail = ({ dataPage }: any) => {
 		titlePrev,
 		slugPrev,
 		slugNext,
+		imageMobile,
 	} = dataPage || {};
-	console.log("🚀dataPage---->", dataPage);
 
 	return (
 		<>
-			<section className="coursedthero" style={{ backgroundImage: `url(${image})` }}>
+			<section className="coursedthero" style={{ backgroundImage: `url(${width > 767 ? image : imageMobile})` }}>
 				<div className="textbox --center --white-cl">
 					<h1 className="heading --h2">
 						<span className="heading --h3">{name?.[lang]}</span>

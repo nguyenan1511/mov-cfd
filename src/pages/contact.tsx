@@ -14,10 +14,10 @@ const contact: NextPage = (props: any) => {
 	const _metaData = {
 		metaTitle: props?.dataDetail?.metaTitle?.[router.locale as any],
 		metaDescription: props?.dataDetail?.metaDescription?.[router.locale as any],
-		metaImage: props?.dataDetail?.metaImage
+		metaImage: props?.dataDetail?.metaImage,
 	};
 	return (
-		<MasterPage meta={_metaData}>
+		<MasterPage meta={_metaData} className="contactpage">
 			<ContactPage dataPage={props?.dataDetail} />
 		</MasterPage>
 	);

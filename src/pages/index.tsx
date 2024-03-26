@@ -18,7 +18,7 @@ const Home: NextPage = (props: any) => {
 	};
 
 	return (
-		<MasterPage className="main" meta={_metaData}>
+		<MasterPage className="homepage" meta={_metaData}>
 			<UIHome dataPage={props?.dataDetail?.data} />
 		</MasterPage>
 	);
