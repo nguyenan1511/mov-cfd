@@ -53,8 +53,7 @@ const GlobalStyle = () => {
 			.root-scroll {
 				width: 100%;
 				height: 100dvh;
-				overflow-y: auto;
-				overflow-x: hidden;
+				overflow-y: initial;
 				@include customscroll();
 			}
 

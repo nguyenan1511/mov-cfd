@@ -7,10 +7,15 @@ const HeroAbout = ({ dataPage }: any) => {
 		<section className="hero --ptb">
 			<div className="container">
 				<div className="textbox --center">
-					<h1 className="heading --h0">
+					<h1
+						className="heading --h0"
+						dangerouslySetInnerHTML={{
+							__html: dataPage?.[lang]?.name,
+						}}
+					>
 						{/* Make
 						<br /> your life <span className="--green-text-cl">yours</span> */}
-						{dataPage?.[lang]?.name}
+						{}
 					</h1>
 				</div>
 				<div className="hero__img --img1">
