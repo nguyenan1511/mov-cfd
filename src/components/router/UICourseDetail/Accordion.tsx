@@ -2,7 +2,7 @@ const Accordion = ({ data = [] }) => {
 	return (
 		<ul className="accordion">
 			{data?.map((item: any, index: number) => (
-				<li className="accordion-item is-open" key={index}>
+				<li className="accordion-item" key={index}>
 					<h3 className="accordion-button">
 						<span>{item?.title}</span>
 						<div className="arrow-icon" />

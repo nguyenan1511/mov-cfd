@@ -1,71 +1,11 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import "antd/dist/reset.css";
-import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
-import React from "react";
-
-import asset from "@/plugins/asset";
+import "slick-carousel/slick/slick.css";
 
 const GlobalStyle = () => {
 	return (
 		<style jsx global>{`
-			// @mixin customscroll($width: 1px, $bgTrack: #f5ead4, $bgThumb: #41ada0) {
-			// 	&::-webkit-scrollbar {
-			// 		width: $width;
-			// 		@media (max-width: 767.98px) {
-			// 			width: 0;
-			// 		}
-			// 	}
-			// 	&::-webkit-scrollbar-track {
-			// 		background: $bgTrack;
-			// 	}
-			// 	&::-webkit-scrollbar-thumb {
-			// 		background: $bgThumb;
-			// 		border-radius: 20px;
-			// 	}
-			// }
-			// html {
-			// 	font-size: 62.5%;
-			// }
-			// html,
-			// body {
-			// 	background: linear-gradient(0deg, rgba(255, 255, 255, 0) 0%, rgba(255, 247, 232, 1) 100%);
-			// 	height: 100dvh;
-			// 	overflow-x: hidden;
-			// }
-			// body,
-			// html,
-			// .hideScrollbar {
-			// 	-ms-overflow-style: none;
-			// 	scrollbar-width: none;
-			// 	&::-webkit-scrollbar {
-			// 		display: none;
-			// 	}
-			// }
-
-			// .root {
-			// 	position: absolute;
-			// 	top: 0;
-			// 	width: 100%;
-			// 	height: 100dvh;
-			// 	display: flex;
-			// 	flex-direction: column;
-			// 	flex-shrink: 0;
-			// 	padding: 0px;
-			// }
-
-			// .root-scroll {
-			// 	width: 100%;
-			// 	height: 100dvh;
-			// 	overflow-y: initial;
-			// 	@include customscroll();
-			// }
-
-			// #__next {
-			// 	overflow-x: hidden;
-			// 	min-height: 100vh;
-			// }
 			html,
 			body,
 			.hideScrollbar {
@@ -182,6 +122,10 @@ const GlobalStyle = () => {
 			}
 			.card__info .heading {
 				display: -webkit-box !important;
+			}
+
+			.arrow-icon {
+				background-image: url("/img/icon-arrow-accordion.svg") !important;
 			}
 
 			.contentbox {
