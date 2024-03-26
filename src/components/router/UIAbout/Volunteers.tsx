@@ -14,7 +14,7 @@ const Volunteers = ({ dataVolunteers }: any) => {
 				<div className="volunteers__list">
 					{dataVolunteers?.map((item: any, index: number) => (
 						<div className="item" key={index}>
-							<img srcSet={item?.image || "/img/volunteers-logo-1.png 2x"} alt="" />
+							<img srcSet={`${item?.image} 2x`} alt="" />
 						</div>
 					))}
 				</div>

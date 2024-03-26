@@ -11,7 +11,7 @@ const LatestActivityItem = ({ image, slug, title, updatedAt }: any) => {
 		<div className="card">
 			<div className="card__img">
 				<Link href={href} aria-label="article detail">
-					<img src={image || "/img/event-card1.jpg"} alt="img-event" />
+					<img src={image} alt="img-event" />
 				</Link>
 			</div>
 			<div className="card__info">

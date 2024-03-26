@@ -36,7 +36,7 @@ const Footer = () => {
 					</div>
 					<div className="footer__top-center">
 						<p className="text">{dataFooter?.data?.[lang]?.name}</p>
-						<p className="copyright">©2024 MOV. ALL RIGHTS RESERVED</p>
+						<p className="copyright">{dataFooter?.data?.[lang]?.powerBy}</p>
 					</div>
 					<div className="footer__top-info">
 						<Link href={`mailto:${dataFooter?.data?.[lang]?.email}`}>
@@ -49,7 +49,7 @@ const Footer = () => {
 						<Link href={dataFooter?.data?.[lang]?.fb || "#"} target="_blank">
 							Facebook
 						</Link>
-						<Link href={dataFooter?.data?.[lang]?.linkedIn || "#"} target="_blank">
+						<Link href={dataFooter?.data?.[lang]?.linkdIn || "#"} target="_blank">
 							Linkedin
 						</Link>
 						<Link href={dataFooter?.data?.[lang]?.youtube || "#"} target="_blank">

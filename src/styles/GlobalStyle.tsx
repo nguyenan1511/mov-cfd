@@ -11,7 +11,7 @@ const GlobalStyle = () => {
 	return (
 		<style jsx global>{`
 
-			@mixin customscroll($width: 3px, $bgTrack: transparent, $bgThumb: #41ada0) {
+			@mixin customscroll($width: 0, $bgTrack: transparent, $bgThumb: #41ada0) {
 				&::-webkit-scrollbar {
 					width: $width;
 					@media (max-width: 767.98px) {
@@ -384,6 +384,14 @@ const GlobalStyle = () => {
 			}
 			.card__info .heading{
 				display: -webkit-box !important;
+			}
+
+			.contentbox{
+				.heading{
+					&:after {
+						background-image: url("/img/about-shape-mission.svg") !important;
+					}
+				}
 			}
 		`}</style>
 	);
