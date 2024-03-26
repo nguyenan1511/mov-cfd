@@ -114,6 +114,16 @@ const MainProvider: React.FC<Props> = ({ children }) => {
 	}, [router.asPath]);
 
 	useEffect(() => {
+		const myTimeout = setTimeout(() => {
+			const scrollToNew = document.getElementById("topPage");
+			if (scrollToNew) scrollToNew.scrollIntoView({ block: "start", behavior: "smooth" });
+		}, 100);
+		return () => {
+			clearTimeout(myTimeout);
+		};
+	}, [router?.asPath]);
+
+	useEffect(() => {
 		if (!router?.isReady) {
 			return;
 		}

@@ -30,17 +30,11 @@ const ActivitiesPage = ({ dataPage }: any) => {
 	}, [dataCategory]);
 
 	return (
-		dataCategory?.length > 0 && (
-			<>
-				{dataCategory?.[0] && <LatestActFeatured dataCategory={dataCategory?.[0]} />}
-				{dataCategory?.[1] && (
-					<ActivitiesList className="--pt" id="prevclass" dataCategory={dataCategory?.[1]} />
-				)}
-				{dataCategory?.[2] && (
-					<ActivitiesList className="--ptb" id="otherclass" dataCategory={dataCategory?.[2]} />
-				)}
-			</>
-		)
+		<>
+			{dataCategory?.[0] && <LatestActFeatured dataCategory={dataCategory?.[0]} />}
+			{dataCategory?.[1] && <ActivitiesList className="--pt" id="prevclass" dataCategory={dataCategory?.[1]} />}
+			{dataCategory?.[2] && <ActivitiesList className="--ptb" id="otherclass" dataCategory={dataCategory?.[2]} />}
+		</>
 	);
 };
 

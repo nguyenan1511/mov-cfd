@@ -7,11 +7,14 @@ const Accordion = ({ data = [] }) => {
 						<span>{item?.title}</span>
 						<div className="arrow-icon" />
 					</h3>
-					{item?.description?.map((itemChild: any, indexChild: number) => (
-						<p className="accordion-content is-open" key={indexChild}>
-							{itemChild}
-						</p>
-					))}
+					{item?.description?.map(
+						(itemChild: any, indexChild: number) =>
+							indexChild < 1 && (
+								<p className="accordion-content is-open" key={indexChild}>
+									{itemChild}
+								</p>
+							)
+					)}
 				</li>
 			))}
 		</ul>

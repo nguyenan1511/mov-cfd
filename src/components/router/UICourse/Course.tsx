@@ -38,7 +38,7 @@ const Course = (props: any) => {
 					</div>
 				</div>
 				<Link href={_link} className="btn btn-fill">
-					Xem thêm
+					{lang == "vi" ? "Xem thêm" : "Learn more"}
 				</Link>
 			</div>
 		</div>

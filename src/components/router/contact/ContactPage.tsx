@@ -1,10 +1,9 @@
 import { useStorage } from "@/components/context/StorageProvider";
 
 const ContactPage = ({ dataPage }: any) => {
-	console.log("🚀dataPage---->", dataPage);
-
 	const { lang } = useStorage();
 
+	console.log("🚀dataPage---->", dataPage?.data);
 	return (
 		<>
 			<section className="sccontactus --ptb">
@@ -21,13 +20,15 @@ const ContactPage = ({ dataPage }: any) => {
 						<div className="sccontactus__box-contactinfo course__info">
 							<div className="address">
 								<span className="label">
-									<strong>M7, A32.11</strong>
+									<strong>{dataPage?.data?.[lang]?.blockNo}</strong>
 								</span>
 								<p className="text">{dataPage?.data?.[lang]?.address}</p>
 							</div>
 							<div className="phones">
-								<p className="phone">
-									<strong>{dataPage?.data?.[lang]?.phone}</strong>
+								<p className="phone flex flex-col">
+									{dataPage?.data?.[lang]?.phone.map((item: any, index: number) => (
+										<strong key={index}>{item}</strong>
+									))}
 								</p>
 								<p className="phone">
 									<strong>{dataPage?.data?.[lang]?.generalInfo}</strong>
@@ -36,23 +37,21 @@ const ContactPage = ({ dataPage }: any) => {
 							<div className="emails">
 								<div className="emailbox">
 									<span className="label">
-										<strong>Course</strong>
+										<strong>{lang == "vi" ? "Course" : "Khoá học"}</strong>
 									</span>
 									<p className="text">{dataPage?.data?.[lang]?.course}</p>
 								</div>
 								<div className="emailbox">
 									<span className="label">
-										<strong>General info</strong>
+										<strong>{lang == "vi" ? "Thông tin chung" : "General info"}</strong>
 									</span>
-									<p className="text">info@mov.com.vn</p>
+									<p className="text">{dataPage?.data?.[lang]?.generalInfo}</p>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</section>
-
-			<style jsx>{``}</style>
 		</>
 	);
 };

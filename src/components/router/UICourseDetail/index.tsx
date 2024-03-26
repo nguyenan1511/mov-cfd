@@ -4,6 +4,7 @@ import React, { Fragment, useEffect } from "react";
 const nl2br = require("react-nl2br");
 import $ from "jquery";
 import Accordion from "@/components/router/UICourseDetail/Accordion";
+import Link from "next/link";
 
 const UICourseDetail = ({ dataPage }: any) => {
 	const { lang } = useStorage();
@@ -29,8 +30,23 @@ const UICourseDetail = ({ dataPage }: any) => {
 		});
 	}, []);
 
-	const { image, content, name, title, description, required, contact } = dataPage || {};
-
+	const {
+		image,
+		content,
+		name,
+		title,
+		description,
+		required,
+		contact,
+		teams,
+		namePrev,
+		nameNext,
+		titleNext,
+		titlePrev,
+		slugPrev,
+		slugNext,
+	} = dataPage || {};
+	console.log("🚀dataPage---->", dataPage);
 
 	return (
 		<>
@@ -53,9 +69,12 @@ const UICourseDetail = ({ dataPage }: any) => {
 							<h2 className="heading --h4 --uppercase">
 								{lang == "vi" ? "Khoá học này dành cho ai?" : "Who is this course for?								"}
 							</h2>
-							<div className="text">
-								<p>{description?.[lang]}</p>
-							</div>
+							<div
+								className="text"
+								dangerouslySetInnerHTML={{
+									__html: description?.[lang],
+								}}
+							></div>
 						</div>
 						<div className="content contactbox">
 							<h2 className="heading --h4 --uppercase">
@@ -68,7 +87,7 @@ const UICourseDetail = ({ dataPage }: any) => {
 								</div>
 								<div className="group__item">
 									<p className="heading --h4">Hotline</p>
-									<p>{contact?.phone}</p>
+									<p>{contact?.hotline}</p>
 								</div>
 							</div>
 						</div>
@@ -97,18 +116,15 @@ const UICourseDetail = ({ dataPage }: any) => {
 						</div>
 
 						<div className="content teachersbox">
-							<h2 className="heading --h4 --uppercase">Giảng viên</h2>
+							<h2 className="heading --h4 --uppercase">{lang == "vi" ? "Giảng viên" : "Teacher"}</h2>
 							<div className="teacher">
 								<div className="teacher__img">
-									<img src={asset("/img/img-lectur.jpg")} alt="" />
+									<img src={teams?.[0]?.image} alt="" />
 								</div>
 								<div className="teacher__info">
-									<p className="teacher__info-name heading --h3">Doan Nguyen</p>
-									<p className="teacher__info-rank">THS.NCS</p>
-									<p className="teacher__info-text">
-										Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed
-										quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt
-									</p>
+									<p className="teacher__info-name heading --h3">{teams?.[0]?.name}</p>
+									<p className="teacher__info-rank">{teams?.[0]?.jobTitle?.[lang]}</p>
+									<p className="teacher__info-text">{teams?.[0]?.description?.[lang]}</p>
 								</div>
 							</div>
 						</div>
@@ -117,11 +133,11 @@ const UICourseDetail = ({ dataPage }: any) => {
 			</section>
 			<section className="articlecontrols">
 				<div className="container">
-					<article className="articlecontrols__link">
-						<a href="course-detail.html" className="articlecontrols__link-icon">
+					<article className={`articlecontrols__link ${slugPrev?.[lang] ? "" : "opacity-0 invisible"} `}>
+						<Link href={`/courses/${slugPrev?.[lang]}`} className="articlecontrols__link-icon">
 							<svg
-								width={67}
-								height={16}
+								width="67"
+								height="16"
 								viewBox="0 0 67 16"
 								fill="none"
 								xmlns="http://www.w3.org/2000/svg"
@@ -131,20 +147,22 @@ const UICourseDetail = ({ dataPage }: any) => {
 									fill="white"
 								/>
 							</svg>
-						</a>
+						</Link>
 						<h3 className="title">
-							<a href="course-detail.html" className="text --white-cl">
-								<span className="text">Khoá học trước đó</span>
+							<Link href={`/courses/${slugPrev?.[lang]}`} className="text --white-cl">
+								<span className="text">{lang == "vi" ? "Khoá học trước đó" : "Prev"}</span>
 								<strong>
-									<span>Practical Application Course Level 2 (PAC2)</span>
-									Ứng dụng thực hành
+									<span>{namePrev?.[lang]}</span>
+									{titlePrev?.[lang]}
 								</strong>
-							</a>
+							</Link>
 						</h3>
 					</article>
-					<article className="articlecontrols__link">
-						<a href="course-detail.html" className="articlecontrols__link-icon">
+
+					<article className={`articlecontrols__link ${slugNext?.[lang] ? "" : "opacity-0 invisible"}`}>
+						<Link href={`/courses/${slugNext?.[lang]}`} className="articlecontrols__link-icon">
 							<svg
+								className="rotate-180"
 								width={67}
 								height={16}
 								viewBox="0 0 67 16"
@@ -156,15 +174,15 @@ const UICourseDetail = ({ dataPage }: any) => {
 									fill="white"
 								/>
 							</svg>
-						</a>
+						</Link>
 						<h3 className="title">
-							<a href="course-detail.html" className="text --white-cl">
-								<span className="text">Khoá học trước đó</span>
+							<Link href={`/courses/${slugNext?.[lang]}`} className="text --white-cl">
+								<span className="text">{lang == "vi" ? "Khoá học tiếp theo" : "Next"}</span>
 								<strong className="title">
-									<span>Practical Application Course Level 2 (PAC2)</span>
-									Ứng dụng thực hành
+									<span>{nameNext?.[lang]}</span>
+									{titleNext?.[lang]}
 								</strong>
-							</a>
+							</Link>
 						</h3>
 					</article>
 				</div>

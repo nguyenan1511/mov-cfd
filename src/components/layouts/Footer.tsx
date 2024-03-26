@@ -59,7 +59,7 @@ const Footer = () => {
 				</div>
 			</div>
 			<button className="footer__backtotop" onClick={srcollTop}>
-				Back to top
+				{lang == "vi" ? "Trở lên đầu" : "Back to top"}
 			</button>
 		</footer>
 	);
