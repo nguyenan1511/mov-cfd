@@ -9,7 +9,7 @@ const CoreTeams = ({ dataTeam }: any) => {
 		<section className="coreteams --ptb">
 			<div className="textbox --mb --center">
 				<h2 className="heading --h2 textbox --center --capitalize">
-					{lang == "vi" ? "Thành viên chính" : "The Core team"}
+					{lang == "vi" ? "Đội ngũ chuyên môn" : "The Core team"}
 				</h2>
 			</div>
 			<div className="coreteams__slider">
