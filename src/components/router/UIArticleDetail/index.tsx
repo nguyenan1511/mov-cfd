@@ -97,9 +97,17 @@ const UIArticleDetail = ({ dataPage, type = "" }: any) => {
 						</Link>
 						<h3 className="title">
 							<Link href={`/${type}/${slugPrev?.[lang]}`} className="text --white-cl">
-								<span className="text">{lang == "vi" ? "Khoá học trước đó" : "Prev"}</span>
-								<strong>
-									<span>{namePrev?.[lang]}</span>
+								<span className="text ">
+									{lang == "vi"
+										? `${
+												type === "activities"
+													? "Đến hoạt động trước đó"
+													: "Đến bài viết trước đó"
+										  }`
+										: "Prev"}
+								</span>
+								<strong className="line-clamp-3">
+									{/* <span>{namePrev?.[lang]}</span> */}
 									{titlePrev?.[lang]}
 								</strong>
 							</Link>
@@ -124,9 +132,17 @@ const UIArticleDetail = ({ dataPage, type = "" }: any) => {
 						</Link>
 						<h3 className="title">
 							<Link href={`/${type}/${slugNext?.[lang]}`} className="text --white-cl">
-								<span className="text">{lang == "vi" ? "Khoá học tiếp theo" : "Next"}</span>
-								<strong className="title">
-									<span>{nameNext?.[lang]}</span>
+								<span className="text">
+									{lang == "vi"
+										? `${
+												type === "activities"
+													? "Đến hoạt động tiếp theo"
+													: "Đến bài viết tiếp theo"
+										  }`
+										: "Next"}
+								</span>
+								<strong className="line-clamp-3">
+									{/* <span>{nameNext?.[lang]}</span> */}
 									{titleNext?.[lang]}
 								</strong>
 							</Link>
