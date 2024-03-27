@@ -39,6 +39,8 @@ const Header = ({ classNameHeader = "", scrollTopPos }: any) => {
 	const { setLang, lang } = useStorage();
 	const [fixHeader, setFixHeader] = useState(false);
 
+	const router = useRouter();
+
 	const [openMenu, setOpenMenu] = useState(false);
 
 	const { pathname, push, asPath } = useRouter();
@@ -78,7 +80,10 @@ const Header = ({ classNameHeader = "", scrollTopPos }: any) => {
 					<ul className="header__menu">
 						{LISTMENU.map((item: any, index: number) => (
 							<li key={index}>
-								<Link href={item?.link} className={`itemmenu ${pathname == item.link ? "active" : ""}`}>
+								<Link
+									href={item?.link}
+									className={`itemmenu ${pathname?.includes(item.link) ? "active" : ""}`}
+								>
 									{item?.name?.[lang]}
 								</Link>
 							</li>
@@ -118,7 +123,7 @@ const Header = ({ classNameHeader = "", scrollTopPos }: any) => {
 								<li key={index}>
 									<Link
 										href={item?.link}
-										className={`itemmenu ${pathname == item.link ? "active" : ""}`}
+										className={`itemmenu ${pathname?.includes(item.link) ? "active" : ""}`}
 									>
 										{item?.name?.[lang]}
 									</Link>

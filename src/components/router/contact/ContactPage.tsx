@@ -2,7 +2,6 @@ import { useStorage } from "@/components/context/StorageProvider";
 import Link from "next/link";
 
 const ContactPage = ({ dataPage }: any) => {
-	console.log("🚀dataPage---->", dataPage);
 	const { lang } = useStorage();
 
 	return (

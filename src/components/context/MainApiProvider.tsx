@@ -14,7 +14,7 @@ const MainApiProvider: React.FC<Props> = ({ children }) => {
 
 	const getListCourse = async () => {
 		return GET({
-			path: `/api/v1/courses`,
+			path: `/api/v1/courses?orderBy=sortOrder&order=1`,
 		});
 	};
 
@@ -36,9 +36,9 @@ const MainApiProvider: React.FC<Props> = ({ children }) => {
 		});
 	};
 
-	const getDataTeam = async () => {
+	const getDataTeam = async (query?: any) => {
 		return GET({
-			path: `/api/v1/teams`,
+			path: `/api/v1/teams${query ? query : ""}`,
 		});
 	};
 

@@ -10,7 +10,7 @@ const Partners = ({ dataPartner = [] }: any) => {
 				<div className="partners__list">
 					{dataPartner?.map((item: any, index: any) => (
 						<div className="partners__list-item" key={index}>
-							<img srcSet={item?.image} alt="" />
+							<img srcSet={`${item?.image} 2x`} alt="" />
 						</div>
 					))}
 					{/* <div className="partners__list-item">

@@ -23,7 +23,7 @@ const RootScroll = (props: IRootScroll) => {
 
 	return (
 		<>
-			<div className="topPage" id="topPage"></div>
+			<div className="topPage fixed top-0 left-0" id="topPage"></div>
 			<Header classNameHeader={props?.classNameHeader} scrollTopPos={scrollTopPos} />
 			<main className="main min-h-screen">{props.children}</main>
 			<Footer />

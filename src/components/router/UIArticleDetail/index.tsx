@@ -4,7 +4,7 @@ import Link from "next/link";
 import React from "react";
 
 const UIArticleDetail = ({ dataPage, type = "" }: any) => {
-	const { slugPrev, namePrev, nameNext, slugNext, titlePrev, titleNext, updatedAt } = dataPage || {};
+	const { slugPrev, namePrev, nameNext, slugNext, titlePrev, titleNext, updatedAt, title } = dataPage || {};
 
 	const { lang } = useStorage();
 
@@ -16,7 +16,11 @@ const UIArticleDetail = ({ dataPage, type = "" }: any) => {
 						<div className="textbox --center">
 							<h1 className="heading --h2">{dataPage?.name?.[lang]}</h1>
 							<div className="desc">
-								<p>{dayjs(updatedAt || "")?.format("DD/MM/YYYY")}</p>
+								{type === "activities" ? (
+									<p>{dayjs(updatedAt || "")?.format("DD/MM/YYYY")}</p>
+								) : (
+									<p>{title?.[lang]}</p>
+								)}
 							</div>
 						</div>
 					</div>
@@ -26,6 +30,7 @@ const UIArticleDetail = ({ dataPage, type = "" }: any) => {
 							__html: dataPage?.description?.[lang],
 						}}
 					>
+						{/* {renderHTML(dataPage?.description?.[lang])} */}
 						{/* <h2 className="heading --h4 --uppercase">Lorem ipsum dolor sit amt</h2>
 						<p>
 							<strong>Sed ut perspiciatis</strong>
@@ -104,7 +109,7 @@ const UIArticleDetail = ({ dataPage, type = "" }: any) => {
 													? "Đến hoạt động trước đó"
 													: "Đến bài viết trước đó"
 										  }`
-										: "Prev"}
+										: `${type === "activities" ? "Previous post" : "Previous article"}`}
 								</span>
 								<strong className="line-clamp-3">
 									{/* <span>{namePrev?.[lang]}</span> */}
@@ -139,7 +144,7 @@ const UIArticleDetail = ({ dataPage, type = "" }: any) => {
 													? "Đến hoạt động tiếp theo"
 													: "Đến bài viết tiếp theo"
 										  }`
-										: "Next"}
+										: `${type === "activities" ? "Next post" : "Next article"}`}
 								</span>
 								<strong className="line-clamp-3">
 									{/* <span>{nameNext?.[lang]}</span> */}

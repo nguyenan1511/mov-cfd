@@ -86,10 +86,7 @@ const MainProvider: React.FC<Props> = ({ children }) => {
 	};
 
 	useEffect(() => {
-		imagesLoaded(".root", function () {
-			// images have loaded
-			handleLoad();
-		});
+		handleLoad();
 	}, []);
 
 	useEffect(() => {

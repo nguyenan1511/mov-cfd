@@ -43,7 +43,7 @@ const UIHome = ({ dataPage }: any) => {
 
 	const { data: dataTeam } = useQuery({
 		queryFn: async () => {
-			const res = await getDataTeam();
+			const res = await getDataTeam("?orderBy=sortOrder&order=1");
 			if (res) {
 				return res?.data?.teams;
 			}
@@ -55,7 +55,7 @@ const UIHome = ({ dataPage }: any) => {
 
 	const { data: dataKnowledge } = useQuery({
 		queryFn: async () => {
-			const res = await getDataKnowledge("?page=1&limit=4");
+			const res = await getDataKnowledge("?page=1&limit=4&orderBy=sortOrder&order=1");
 			if (res) {
 				return res?.data?.knowledges;
 			}
@@ -67,7 +67,7 @@ const UIHome = ({ dataPage }: any) => {
 
 	const { data: dataActivity } = useQuery({
 		queryFn: async () => {
-			const res = await getDataActivity();
+			const res = await getDataActivity("?orderBy=sortOrder&order=1");
 			if (res) {
 				return res?.data?.activities;
 			}
@@ -79,7 +79,7 @@ const UIHome = ({ dataPage }: any) => {
 
 	const { data: dataProgram } = useQuery({
 		queryFn: async () => {
-			const res = await getDataProgram();
+			const res = await getDataProgram("?orderBy=sortOrder&order=1");
 			if (res) {
 				return res?.data?.programs;
 			}

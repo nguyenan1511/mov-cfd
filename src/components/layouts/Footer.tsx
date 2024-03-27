@@ -43,7 +43,7 @@ const Footer = () => {
 							{dataFooter?.data?.[lang]?.email}
 						</Link>
 						<Link href={`tel:${dataFooter?.data?.[lang]?.email}`}>{dataFooter?.data?.[lang]?.phone}</Link>
-						<Link href="contact.html">{lang == "vi" ? "Liên hệ" : "Contact Us"}</Link>
+						<Link href="/contact">{lang == "vi" ? "Liên hệ" : "Contact Us"}</Link>
 					</div>
 					<div className="footer__top-social">
 						<Link href={dataFooter?.data?.[lang]?.fb || "#"} target="_blank">
