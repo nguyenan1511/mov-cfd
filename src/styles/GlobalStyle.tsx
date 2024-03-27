@@ -114,10 +114,8 @@ const GlobalStyle = () => {
 			}
 
 			.textbox-card {
-				&:hover {
-					&:after {
-						background-image: url("/img/card-bg.svg");
-					}
+				&:after {
+					background-image: url("/img/card-bg.svg");
 				}
 			}
 			.card__info .heading {
