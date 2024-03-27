@@ -10,15 +10,15 @@ const Course = (props: any) => {
 
 	const _team = teams?.[0] || {};
 
-
 	const _link = slug?.[lang] ? `/courses/${slug?.[lang]}` : "#";
 
 	return (
 		<div className="course">
 			<div className="course__img">
-				<Link href={_link}>
+				<img src={image || asset("/assets/img/course-img1.jpg")} alt="course-img" />
+				{/* <Link href={_link}>
 					<img src={image || asset("/assets/img/course-img1.jpg")} alt="course-img" />
-				</Link>
+				</Link> */}
 			</div>
 			<div className="course__info">
 				<h3 className="title heading --h3 --black-cl">
@@ -38,9 +38,9 @@ const Course = (props: any) => {
 						<p className="teacher__info-rank">{_team?.jobTitle?.[lang]}</p>
 					</div>
 				</div>
-				<Link href={_link} className="btn btn-fill">
+				{/* <Link href={_link} className="btn btn-fill">
 					{lang == "vi" ? "Xem thêm" : "Learn more"}
-				</Link>
+				</Link> */}
 			</div>
 		</div>
 	);
