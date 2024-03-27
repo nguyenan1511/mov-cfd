@@ -19,7 +19,7 @@ const program: NextPage = (props: any) => {
 
 	return (
 		<MasterPage meta={_metaData} className="articledetailpage">
-			<UIArticleDetail dataPage={props?.dataDetail} type="knowledge" />
+			<UIArticleDetail dataPage={props?.dataDetail} type="program" />
 		</MasterPage>
 	);
 };
