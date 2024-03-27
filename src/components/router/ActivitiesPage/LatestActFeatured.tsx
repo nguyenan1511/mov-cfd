@@ -11,7 +11,7 @@ const LatestActFeatured = ({ dataCategory }: any) => {
 
 	const { data: dataActivity } = useQuery({
 		queryFn: async () => {
-			const res = await getDataActivity(`?category=${dataCategory?.id}`);
+			const res = await getDataActivity(`?limit=4&orderBy=createdAt&order=-1`);
 			if (res) {
 				return res?.data?.activities;
 			}
