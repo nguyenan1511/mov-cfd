@@ -19,7 +19,7 @@ const ActivitiesList = ({ className = "", id = "prevclass", dataCategory = {} }:
 			}
 			return null;
 		},
-		queryKey: ["activity"],
+		queryKey: [`activity-${dataCategory?.id}`],
 		staleTime: TIME_STALE, // 60 seconds
 	});
 

@@ -4,7 +4,7 @@ import Link from "next/link";
 import React from "react";
 
 const Course = (props: any) => {
-	const { name, description, teams, slug, image } = props;
+	const { name, description, teams, slug, image, title } = props;
 
 	const { lang } = useStorage();
 
@@ -26,7 +26,8 @@ const Course = (props: any) => {
 				</h3>
 				<h2 className="heading --h1">
 					<span className="heading --h3">{name?.[lang]}</span>
-					{lang == "vi" ? "Ứng dụng thực hành" : "Practical application"}
+					{/* {lang == "vi" ? "Ứng dụng thực hành" : "Practical application"} */}
+					{title?.[lang]}
 				</h2>
 				<p className="desc line-clamp-2">{description?.[lang]}</p>
 				<div className="teacher small">

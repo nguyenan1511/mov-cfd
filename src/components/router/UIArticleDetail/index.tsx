@@ -1,9 +1,11 @@
 import { useStorage } from "@/components/context/StorageProvider";
+import dayjs from "dayjs";
 import Link from "next/link";
 import React from "react";
 
 const UIArticleDetail = ({ dataPage, type = "" }: any) => {
-	const { slugPrev, namePrev, nameNext, slugNext, titlePrev, titleNext } = dataPage || {};
+	const { slugPrev, namePrev, nameNext, slugNext, titlePrev, titleNext, updatedAt } = dataPage || {};
+
 	const { lang } = useStorage();
 
 	return (
@@ -14,10 +16,7 @@ const UIArticleDetail = ({ dataPage, type = "" }: any) => {
 						<div className="textbox --center">
 							<h1 className="heading --h2">{dataPage?.name?.[lang]}</h1>
 							<div className="desc">
-								<p>
-									Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-									doloremque laudantium
-								</p>
+								<p>{dayjs(updatedAt || "")?.format("DD/MM/YYYY")}</p>
 							</div>
 						</div>
 					</div>
