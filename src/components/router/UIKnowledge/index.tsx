@@ -3,8 +3,7 @@ import { useStorage } from "@/components/context/StorageProvider";
 import KnowledgeHubItem from "@/components/router/UIHome/KnowledgeHubItem";
 import { TIME_STALE } from "@/constant";
 import { useMutation, useQuery } from "@tanstack/react-query";
-import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 const UIKnowledge = ({ dataPage }: any) => {
 	const { lang } = useStorage();
@@ -24,10 +23,14 @@ const UIKnowledge = ({ dataPage }: any) => {
 		staleTime: TIME_STALE, // 60 seconds
 	});
 
-	const { data: dataKnowledge, mutateAsync: fetchDataKnowledge } = useMutation({
+	const {
+		data: dataKnowledge,
+		mutateAsync: fetchDataKnowledge,
+		isLoading,
+	} = useMutation({
 		mutationFn: async (data: any) => {
 			const res = await getDataKnowledge(`?category=${data?.category}`);
-			if (res?.status) {
+			if (res?.data) {
 				return res?.data?.knowledges;
 			}
 			return [];
@@ -62,18 +65,16 @@ const UIKnowledge = ({ dataPage }: any) => {
 										onClick={() => setCategory(item?.id)}
 									>
 										{item?.name?.[lang]}
-										<sup>(04)</sup>
+										<sup>({item?.countNumberCateg})</sup>
 									</div>
 							  ))
 							: ""}
 					</div>
 				</div>
 				<div className="scknowledgehub__list list-textbox-card">
-					{dataKnowledge?.length > 0 ? (
-						dataKnowledge?.map((item: any, index: number) => <KnowledgeHubItem key={index} {...item} />)
-					) : (
-						<p>{lang == "vi" ? "Chưa tìm thấy dữ liệu" : "No data"}</p>
-					)}
+					{dataKnowledge?.length > 0
+						? dataKnowledge?.map((item: any, index: number) => <KnowledgeHubItem key={index} {...item} />)
+						: !isLoading && <p>{lang == "vi" ? "Chưa tìm thấy dữ liệu" : "No data"}</p>}
 				</div>
 			</div>
 		</section>

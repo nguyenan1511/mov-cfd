@@ -12,7 +12,8 @@ import { useQuery } from "@tanstack/react-query";
 import { useEffect } from "react";
 
 const UIHome = ({ dataPage }: any) => {
-	const { getDataPartner, getListCourse, getDataTeam, getDataKnowledge, getDataActivity } = useMainApi();
+	const { getDataPartner, getListCourse, getDataTeam, getDataKnowledge, getDataActivity, getDataProgram } =
+		useMainApi();
 
 	const { setLoadedData } = useStorage();
 
@@ -76,6 +77,18 @@ const UIHome = ({ dataPage }: any) => {
 		staleTime: TIME_STALE, // 60 seconds
 	});
 
+	const { data: dataProgram } = useQuery({
+		queryFn: async () => {
+			const res = await getDataProgram();
+			if (res) {
+				return res?.data?.programs;
+			}
+			return null;
+		},
+		queryKey: ["program"],
+		staleTime: TIME_STALE, // 60 seconds
+	});
+
 	useEffect(() => {
 		if (dataCourse?.length && dataTeam?.length && dataActivity?.length) {
 			setLoadedData(true);
@@ -87,7 +100,7 @@ const UIHome = ({ dataPage }: any) => {
 			<HeroBanner dataPage={dataPage} />
 			<Partners dataPartner={dataPartner} />
 			<ListCourseHome dataCourse={dataCourse} />
-			<OurPrograms />
+			<OurPrograms dataProgram={dataProgram} />
 			<CoreTeams dataTeam={dataTeam} />
 			<KnowledgeHub dataKnowledge={dataKnowledge} />
 			<LatestActivities dataActivity={dataActivity} />

@@ -12,9 +12,9 @@ const course: NextPage = (props: any) => {
 	const router = useRouter();
 
 	const _metaData = {
-		metaTitle: props?.dataDetail?.metaTitle?.[router.locale as any],
-		metaDescription: props?.dataDetail?.metaDescription?.[router.locale as any],
-		metaImage: props?.dataDetail?.metaImage
+		metaTitle: props?.dataDetail?.data?.metaTitle?.[router.locale as any],
+		metaDescription: props?.dataDetail?.data?.metaDescription?.[router.locale as any],
+		metaImage: props?.dataDetail?.data?.metaImage,
 	};
 
 	return (
@@ -26,7 +26,7 @@ const course: NextPage = (props: any) => {
 
 export async function getServerSideProps() {
 	let res = await ApiCall({
-		path: `/api/v1/pages/HOME`,
+		path: `/api/v1/pages/KNOWLEDGE`,
 	});
 
 	let dataDetail = {};

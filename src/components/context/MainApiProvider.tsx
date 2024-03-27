@@ -65,6 +65,12 @@ const MainApiProvider: React.FC<Props> = ({ children }) => {
 		});
 	};
 
+	const getDataProgram = async (query?: any) => {
+		return GET({
+			path: `/api/v1/programs${query ? query : ""}`,
+		});
+	};
+
 	return (
 		<MainApiContext.Provider
 			value={{
@@ -77,6 +83,7 @@ const MainApiProvider: React.FC<Props> = ({ children }) => {
 				getDataVolunteers,
 				getCategoryActivity,
 				getDataCategoryKnowledge,
+				getDataProgram,
 			}}
 		>
 			{children}

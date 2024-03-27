@@ -2,10 +2,11 @@ import { useStorage } from "@/components/context/StorageProvider";
 import Link from "next/link";
 import React from "react";
 
-const KnowledgeHubItem = ({ slug, name, description, tags }: any) => {
+const KnowledgeHubItem = ({ slug, name, description, tags, type = "knowledge" }: any) => {
 	const { lang } = useStorage();
 
-	const href = slug?.[lang] ? `/knowledge/${slug?.[lang]}` : "#";
+	const href = slug?.[lang] ? `/${type}/${slug?.[lang]}` : "#";
+
 	return (
 		<div className="textbox-card">
 			<h2 className="title min-h-[84.5px]">

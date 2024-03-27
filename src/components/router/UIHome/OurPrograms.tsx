@@ -1,8 +1,9 @@
 import { useStorage } from "@/components/context/StorageProvider";
+import KnowledgeHubItem from "@/components/router/UIHome/KnowledgeHubItem";
 import Link from "next/link";
 import React from "react";
 
-const OurPrograms = () => {
+const OurPrograms = ({ dataProgram }: any) => {
 	const { lang } = useStorage();
 
 	return (
@@ -14,7 +15,11 @@ const OurPrograms = () => {
 					</h2>
 				</div>
 				<div className="scknowledgehub__list list-textbox-card">
-					<div className="textbox-card">
+					{dataProgram?.map((item: any, index: number) => (
+						<KnowledgeHubItem key={index} {...item} type="program" />
+					))}
+
+					{/* <div className="textbox-card">
 						<h3 className="title">
 							<Link href="#" className="heading --h4">
 								Practical Application Curriculum (PAC) Handout
@@ -69,7 +74,7 @@ const OurPrograms = () => {
 						<Link href="#" className="btn-card btn btn-fill">
 							Xem thêm
 						</Link>
-					</div>
+					</div> */}
 				</div>
 			</div>
 		</section>
