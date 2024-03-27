@@ -10,7 +10,7 @@ const AboutContent = ({ dataPage }: any) => {
 					<div className="contentbox">
 						<h2 className="heading --h4">{dataPage?.[lang]?.title1}</h2>
 						<div
-							className="contentbox__text text-justify"
+							className="contentbox__text"
 							dangerouslySetInnerHTML={{
 								__html: dataPage?.[lang]?.description1,
 							}}
@@ -19,7 +19,7 @@ const AboutContent = ({ dataPage }: any) => {
 					<div className="contentbox ">
 						<h2 className="heading --h4 --last">{dataPage?.[lang]?.title2}</h2>
 						<div
-							className="contentbox__text text-justify"
+							className="contentbox__text"
 							dangerouslySetInnerHTML={{
 								__html: dataPage?.[lang]?.description2,
 							}}

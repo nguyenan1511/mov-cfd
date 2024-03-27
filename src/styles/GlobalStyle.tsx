@@ -109,11 +109,13 @@ const GlobalStyle = () => {
 				-moz-appearance: textfield;
 			}
 
-			.articledetail__content {
-				p {
-					text-align: center !important;
-				}
-			}
+			// .aboutcontent {
+			// 	.articledetail__content {
+			// 		p {
+			// 			text-align: center !important;
+			// 		}
+			// 	}
+			// }
 
 			.errors {
 				margin-top: 5px;

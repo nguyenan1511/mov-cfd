@@ -15,7 +15,7 @@ const KnowledgeHubItem = ({ slug, name, description, tags, type = "knowledge" }:
 				</Link>
 			</h2>
 			<p
-				className="text --small line-clamp-3 min-h-[63px]"
+				className="text --small line-clamp-2"
 				dangerouslySetInnerHTML={{
 					__html: description?.[lang],
 				}}
