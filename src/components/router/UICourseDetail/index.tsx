@@ -109,10 +109,12 @@ const UICourseDetail = ({ dataPage }: any) => {
 									<strong>{item?.title}</strong>
 									<br />
 									{item?.description?.map((itemChild: any, indexChild: number) => (
-										<Fragment key={indexChild}>
-											{itemChild}
-											<br />
-										</Fragment>
+										<div
+											key={indexChild}
+											dangerouslySetInnerHTML={{
+												__html: itemChild,
+											}}
+										></div>
 									))}
 								</p>
 							))}

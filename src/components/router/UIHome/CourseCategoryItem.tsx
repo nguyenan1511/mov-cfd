@@ -19,7 +19,7 @@ const CourseCategoryItem = ({ slug, name, description, tags, countNumberCateg, i
 				</Link>
 			</h2>
 			<p
-				className="text --small line-clamp-2"
+				className="text --small line-clamp-3"
 				dangerouslySetInnerHTML={{
 					__html: description?.[lang],
 				}}
