@@ -6,11 +6,11 @@ const BannerCourse = ({ data = {} }: any) => {
 
 	return (
 		<div className="textbox --center">
-			<h1 className="heading --h2">{data?.[lang]?.name}</h1>
+			<h1 className="heading --h2">{data?.name?.[lang]}</h1>
 			<div className="desc">
 				<p>
-					<strong>{data?.[lang]?.title}</strong>
-					{data?.[lang]?.description}
+					<strong>{data?.title?.[lang]}</strong>
+					{data?.description?.[lang]}
 				</p>
 			</div>
 		</div>

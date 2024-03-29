@@ -12,7 +12,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useEffect } from "react";
 
 const UIHome = ({ dataPage }: any) => {
-	const { getDataPartner, getListCourse, getDataTeam, getDataKnowledge, getDataActivity, getDataProgram } =
+	const { getDataPartner, getListCourse, getDataTeam, getDataKnowledge, getDataActivity, getDataCategoryCourse } =
 		useMainApi();
 
 	const { setLoadedData } = useStorage();
@@ -31,7 +31,7 @@ const UIHome = ({ dataPage }: any) => {
 
 	const { data: dataCourse } = useQuery({
 		queryFn: async () => {
-			const res = await getListCourse();
+			const res = await getListCourse("&isHomePage=true");
 			if (res) {
 				return res?.data?.courses;
 			}
@@ -79,13 +79,13 @@ const UIHome = ({ dataPage }: any) => {
 
 	const { data: dataProgram } = useQuery({
 		queryFn: async () => {
-			const res = await getDataProgram("?orderBy=sortOrder&order=1");
+			const res = await getDataCategoryCourse();
 			if (res) {
-				return res?.data?.programs;
+				return res?.data?.activities;
 			}
 			return null;
 		},
-		queryKey: ["program"],
+		queryKey: ["categoryCourses"],
 		staleTime: TIME_STALE, // 60 seconds
 	});
 

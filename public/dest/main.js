@@ -8,16 +8,34 @@ $(document).ready(function () {
 				contain: true,
 				prevNextButtons: false,
 				pageDots: false,
-				friction: 0.5,
 				on: {
 					ready: function () {
 						updateCurrentSlider(1);
+						setHeightSlides();
 					},
 					change: function (index) {
 						updateCurrentSlider(index + 1);
 					},
 				},
 			});
+
+			// SET HEIGHT SLIDES
+			function setHeightSlides() {
+				let sliderList = document.querySelectorAll(sliderWrap),
+					maxHeight = 0;
+				for (const slider of sliderList) {
+					let slides = slider.querySelectorAll(".flickity-slider > div");
+					for (const slide of slides) {
+						if (slide.offsetHeight > maxHeight) {
+							maxHeight = slide.offsetHeight;
+							slide.style.height = `${maxHeight}px`;
+						}
+					}
+					for (const slide of slides) {
+						slide.style.height = `${maxHeight}px`;
+					}
+				}
+			}
 
 			// CONTROLS
 			let btnPrev = document.querySelector(sliderWrap + " .btn-control.--prev"),
@@ -39,6 +57,13 @@ $(document).ready(function () {
 			}
 			let totalSlides = document.querySelector(sliderWrap + " .sliderpaging .total");
 			totalSlides.innerHTML = flkty.slides.length;
+
+			window.addEventListener("resize", function () {
+				console.log(1);
+				setTimeout(() => {
+					setHeightSlides();
+				}, 100);
+			});
 		}
 	}
 

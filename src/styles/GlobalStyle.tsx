@@ -146,6 +146,33 @@ const GlobalStyle = () => {
 					}
 				}
 			}
+			.contentdetail {
+				--heading-text-cl: #003ca4;
+				--blue-cl: #488cff;
+				h2,
+				h3,
+				h3,
+				h4,
+				h5,
+				h6 {
+					margin-bottom: 25px;
+				}
+				p {
+					margin-bottom: 12px;
+				}
+				img,
+				video,
+				iframe {
+					margin: 40px auto;
+					display: block;
+				}
+				a {
+					color: var(--blue-cl);
+					&:hover {
+						color: var(--heading-text-cl) !important;
+					}
+				}
+			}
 		`}</style>
 	);
 };

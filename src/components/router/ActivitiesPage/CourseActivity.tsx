@@ -14,7 +14,7 @@ const CourseActivity = ({ image, title, description, slug, updatedAt }: any) => 
 				</Link>
 			</div>
 			<div className="course__info">
-				<h2 className="heading --h2 line-clamp-2">{title?.[lang]}</h2>
+				<h2 className="heading --h2">{title?.[lang]}</h2>
 				{/* <p
 					className="desc line-clamp-2"
 					dangerouslySetInnerHTML={{

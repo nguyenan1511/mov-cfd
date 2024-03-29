@@ -16,9 +16,9 @@ const Course = (props: any) => {
 		<div className="course">
 			<div className="course__img">
 				<img src={image || asset("/assets/img/course-img1.jpg")} alt="course-img" />
-				{/* <Link href={_link}>
+				<Link href={_link}>
 					<img src={image || asset("/assets/img/course-img1.jpg")} alt="course-img" />
-				</Link> */}
+				</Link>
 			</div>
 			<div className="course__info">
 				<h3 className="title heading --h3 --black-cl">
@@ -26,10 +26,14 @@ const Course = (props: any) => {
 				</h3>
 				<h2 className="heading --h1">
 					<span className="heading --h3">{name?.[lang]}</span>
-					{/* {lang == "vi" ? "Ứng dụng thực hành" : "Practical application"} */}
 					{title?.[lang]}
 				</h2>
-				<p className="desc line-clamp-2">{description?.[lang]}</p>
+				<p
+					className="desc line-clamp-2"
+					dangerouslySetInnerHTML={{
+						__html: description?.[lang],
+					}}
+				></p>
 				<div className="teacher small">
 					<div className="teacher__img">
 						<img src={_team?.image || asset("/assets/img/img-lectur.jpg")} alt="" />
@@ -39,9 +43,9 @@ const Course = (props: any) => {
 						<p className="teacher__info-rank">{_team?.jobTitle?.[lang]}</p>
 					</div>
 				</div>
-				{/* <Link href={_link} className="btn btn-fill">
+				<Link href={_link} className="btn btn-fill">
 					{lang == "vi" ? "Xem thêm" : "Learn more"}
-				</Link> */}
+				</Link>
 			</div>
 		</div>
 	);

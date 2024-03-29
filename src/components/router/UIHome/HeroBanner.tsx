@@ -8,23 +8,23 @@ const HeroBanner = ({ dataPage }: any) => {
 		<section className="hero --ptb">
 			<div className="container">
 				<div className="textbox --center">
-					<h1 className="heading --h2">
+					<h1 className="heading --h2 wow fadeInUp" data-wow-delay="0.2s">
 						{/* Tại MOV, chúng tôi cam kết phát triển <br />
 						lĩnh vực Phân tích Hành vi Ứng dụng (ABA) tại Việt Nam bằng cách chuyển ngữ các tài liệu và khóa
 						học chất lượng cao. */}
 						{dataPage?.[lang]?.name}
 					</h1>
-					<Link href="/about" className="btn btn-fill --center">
+					<Link href="/about" className="btn btn-fill --center wow fadeInUp" data-wow-delay="0.4s">
 						{dataPage?.[lang]?.buttonName}
 					</Link>
 				</div>
-				<div className="hero__img --img1">
+				<div className="hero__img --img1 wow fadeIn" data-wow-delay="0.6s">
 					<img src={dataPage?.[lang]?.image1 || "/img/hero-img-1.jpg"} alt="" />
 				</div>
-				<div className="hero__img --img2">
+				<div className="hero__img --img2 wow fadeIn" data-wow-delay="1s">
 					<img src={dataPage?.[lang]?.image2 || "/img/hero-img-2.jpg"} alt="" />
 				</div>
-				<div className="hero__img --img3">
+				<div className="hero__img --img3 wow fadeIn" data-wow-delay="0.8s">
 					<img src={dataPage?.[lang]?.image3 || "/img/hero-img-3.jpg"} alt="" />
 				</div>
 			</div>

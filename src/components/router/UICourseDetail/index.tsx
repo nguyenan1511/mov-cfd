@@ -88,10 +88,10 @@ const UICourseDetail = ({ dataPage }: any) => {
 									<p className="heading --h4">Email</p>
 									<p>{contact?.email}</p>
 								</div>
-								<div className="group__item">
+								{/* <div className="group__item">
 									<p className="heading --h4">Hotline</p>
 									<p>{contact?.hotline}</p>
-								</div>
+								</div> */}
 							</div>
 						</div>
 						<div className="content accordionbox">
@@ -153,7 +153,9 @@ const UICourseDetail = ({ dataPage }: any) => {
 						</Link>
 						<h3 className="title">
 							<Link href={`/courses/${slugPrev?.[lang]}`} className="text --white-cl">
-								<span className="text">{lang == "vi" ? "Khoá học trước đó" : "Prev"}</span>
+								<span className="text">
+									{lang == "vi" ? "Đến khóa học trước đó" : "Previous Course"}
+								</span>
 								<strong>
 									<span>{namePrev?.[lang]}</span>
 									{titlePrev?.[lang]}
@@ -180,7 +182,7 @@ const UICourseDetail = ({ dataPage }: any) => {
 						</Link>
 						<h3 className="title">
 							<Link href={`/courses/${slugNext?.[lang]}`} className="text --white-cl">
-								<span className="text">{lang == "vi" ? "Khoá học tiếp theo" : "Next"}</span>
+								<span className="text">{lang == "vi" ? "Đến khóa học tiếp theo" : "Next Course"}</span>
 								<strong className="title">
 									<span>{nameNext?.[lang]}</span>
 									{titleNext?.[lang]}

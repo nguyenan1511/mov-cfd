@@ -12,9 +12,9 @@ interface Props {
 const MainApiProvider: React.FC<Props> = ({ children }) => {
 	const { GET, POST } = useApiProvider();
 
-	const getListCourse = async () => {
+	const getListCourse = async (query?: any) => {
 		return GET({
-			path: `/api/v1/courses?orderBy=sortOrder&order=1`,
+			path: `/api/v1/courses?orderBy=sortOrder&order=1${query ? query : ""}`,
 		});
 	};
 
@@ -71,6 +71,12 @@ const MainApiProvider: React.FC<Props> = ({ children }) => {
 		});
 	};
 
+	const getDataCategoryCourse = async () => {
+		return GET({
+			path: `/api/v1/course-categories?orderBy=sortOrder&order=1`,
+		});
+	};
+
 	return (
 		<MainApiContext.Provider
 			value={{
@@ -84,6 +90,7 @@ const MainApiProvider: React.FC<Props> = ({ children }) => {
 				getCategoryActivity,
 				getDataCategoryKnowledge,
 				getDataProgram,
+				getDataCategoryCourse,
 			}}
 		>
 			{children}

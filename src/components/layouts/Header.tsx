@@ -13,7 +13,8 @@ const LISTMENU = [
 		},
 	},
 	{
-		link: "/courses",
+		link: "/courses/?category=6606cf166aca9e7d24048cb5",
+		path: "/courses",
 		name: {
 			vi: "Khóa Học",
 			en: "Our Programs",
@@ -30,7 +31,7 @@ const LISTMENU = [
 		link: "/knowledge",
 		name: {
 			vi: "Kiến thức",
-			en: "Knowledge Hubs",
+			en: "Knowledge Hub",
 		},
 	},
 ];
@@ -82,7 +83,9 @@ const Header = ({ classNameHeader = "", scrollTopPos }: any) => {
 							<li key={index}>
 								<Link
 									href={item?.link}
-									className={`itemmenu ${pathname?.includes(item.link) ? "active" : ""}`}
+									className={`itemmenu ${
+										pathname?.includes(item.link) || pathname?.includes(item?.path) ? "active" : ""
+									}`}
 								>
 									{item?.name?.[lang]}
 								</Link>
@@ -123,7 +126,11 @@ const Header = ({ classNameHeader = "", scrollTopPos }: any) => {
 								<li key={index}>
 									<Link
 										href={item?.link}
-										className={`itemmenu ${pathname?.includes(item.link) ? "active" : ""}`}
+										className={`itemmenu ${
+											pathname?.includes(item.link) || pathname?.includes(item?.path)
+												? "active"
+												: ""
+										}`}
 									>
 										{item?.name?.[lang]}
 									</Link>

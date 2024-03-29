@@ -19,19 +19,37 @@ const course: NextPage = (props: any) => {
 
 	return (
 		<MasterPage meta={_metaData} className="coursespage">
-			<UICourse dataPage={props?.dataDetail} />
+			<UICourse
+				dataCategory={props?.dataDetail?.dataCategoryList?.activities?.find(
+					(it: any) => it?.id === router?.query?.category
+				)}
+				listCourse={props?.dataDetail?.listCourse}
+			/>
 		</MasterPage>
 	);
 };
 
-export async function getServerSideProps() {
+export async function getServerSideProps({ query }: any) {
 	let res = await ApiCall({
 		path: `/api/v1/pages/COURSE`,
 	});
 
-	let dataDetail = {};
+	let dataCategoryList = await ApiCall({
+		path: `/api/v1/course-categories?orderBy=sortOrder&order=1`,
+	});
+	let listCourse = await ApiCall({
+		path: `/api/v1/courses?category=${query?.category}`,
+	});
+
+	let dataDetail = {} as any;
 	if (res.data) {
 		dataDetail = res.data;
+	}
+	if (dataCategoryList?.data) {
+		dataDetail.dataCategoryList = dataCategoryList?.data;
+	}
+	if (listCourse?.data) {
+		dataDetail.listCourse = listCourse?.data;
 	}
 
 	return {

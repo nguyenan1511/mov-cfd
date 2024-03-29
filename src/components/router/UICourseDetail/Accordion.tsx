@@ -10,9 +10,13 @@ const Accordion = ({ data = [] }) => {
 					{item?.description?.map(
 						(itemChild: any, indexChild: number) =>
 							indexChild < 1 && (
-								<p className="accordion-content is-open" key={indexChild}>
-									{itemChild}
-								</p>
+								<p
+									className="accordion-content is-open"
+									key={indexChild}
+									dangerouslySetInnerHTML={{
+										__html: itemChild,
+									}}
+								></p>
 							)
 					)}
 				</li>

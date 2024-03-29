@@ -21,12 +21,17 @@ const Footer = () => {
 	});
 
 	const srcollTop = () => {
-		const scrollToNew = document.getElementById("topPage");
-		if (scrollToNew) scrollToNew.scrollIntoView({ block: "start", behavior: "smooth" });
+		// const scrollToNew = document.getElementById("topPage");
+		// if (scrollToNew) scrollToNew.scrollIntoView({ block: "start", behavior: "smooth" });
+		if (typeof window == "undefined") {
+			return;
+		}
+
+		window.scroll({ top: 0, left: 0, behavior: "smooth" });
 	};
 
 	return (
-		<footer className="footer">
+		<footer className="footer wow fadeIn">
 			<div className="footer__top">
 				<div className="container">
 					<div className="footer__top-left">

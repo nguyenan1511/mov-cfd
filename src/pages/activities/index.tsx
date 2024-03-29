@@ -17,7 +17,7 @@ const activityPage: NextPage = (props: any) => {
 	};
 
 	return (
-		<MasterPage meta={_metaData}>
+		<MasterPage meta={_metaData} className="activitiespage">
 			<ActivitiesPage />
 		</MasterPage>
 	);

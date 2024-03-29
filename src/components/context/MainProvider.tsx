@@ -18,9 +18,10 @@ interface Props {
 }
 
 const MainProvider: React.FC<Props> = ({ children }) => {
-	const [loading, setLoading] = useState(false);
-
+	const [loading, setLoading] = useState(true);
 	const [scriptSlider, setScriptSlider] = useState<any>();
+
+	// const [scriptWow, setScriptWow] = useState<any>();
 
 	const { loadedData } = useStorage();
 
@@ -89,17 +90,19 @@ const MainProvider: React.FC<Props> = ({ children }) => {
 		handleLoad();
 	}, []);
 
-	useEffect(() => {
-		const scrollTo = document.getElementById("UIProductsDetail");
-		const scrollToNew = document.getElementById("newDetail");
-		if (scrollToNew) scrollToNew.scrollIntoView({ block: "start", behavior: "smooth" });
-		if (scrollTo) scrollTo.scrollIntoView({ block: "start", behavior: "smooth" });
-	}, [router.asPath]);
+	// useEffect(() => {
+	// 	if (!loading) {
+	// 		setTimeout(() => {
+	// 			setScriptWow(<script async src={asset("/dest/wow.js")}></script>);
+	// 		}, 500);
+	// 	}
+	// }, [loading]);
 
 	useEffect(() => {
 		const myTimeout = setTimeout(() => {
-			const scrollToNew = document.getElementById("topPage");
-			if (scrollToNew) scrollToNew.scrollIntoView({ block: "start", behavior: "smooth" });
+			// const scrollToNew = document.getElementById("topPage");
+			// if (scrollToNew) scrollToNew.scrollIntoView({ block: "start", behavior: "smooth" });
+			window.scroll({ top: 0, left: 0, behavior: "smooth" });
 		}, 100);
 		return () => {
 			clearTimeout(myTimeout);
@@ -120,6 +123,7 @@ const MainProvider: React.FC<Props> = ({ children }) => {
 	return (
 		<MainContext.Provider value={{}}>
 			<Head>{scriptSlider}</Head>
+			{/* <Head>{scriptWow}</Head> */}
 			<div className={`loading ${loading ? "" : "--hide"}`}></div>
 			{children}
 			<style jsx>

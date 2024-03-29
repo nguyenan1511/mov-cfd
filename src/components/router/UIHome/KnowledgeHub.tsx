@@ -7,11 +7,11 @@ export const KnowledgeHub = ({ dataKnowledge }: any) => {
 	const { lang } = useStorage();
 
 	return (
-		<section className="scknowledgehub --ptb">
+		<section className="scknowledgehub --ptb wow fadeInUp">
 			<div className="container">
 				<div className="textbox --mb --center">
 					<h2 className="heading --h2 textbox --center --capitalize">
-						{lang == "vi" ? "Kiến thức" : "Knowledge Hubs"}
+						{lang == "vi" ? "Kiến thức" : "Knowledge Hub"}
 					</h2>
 				</div>
 				<div className="scknowledgehub__list list-textbox-card">

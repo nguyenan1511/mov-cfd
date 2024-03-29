@@ -9,12 +9,12 @@ const LatestActivities = ({ dataActivity }: any) => {
 	return (
 		<section className="latestactivities --ptb">
 			<div className="container">
-				<div className="textbox --mb --center">
+				<div className="textbox --mb --center wow fadeInUp">
 					<h2 className="heading --h2 textbox --center --capitalize">
 						{lang == "vi" ? "Hoạt động gần đây" : "Latest Activities"}
 					</h2>
 				</div>
-				<div className="sliderpost">
+				<div className="sliderpost  wow fadeInRight" data-wow-delay="0.3s">
 					<div className="list-card" id="sliderlatest">
 						{dataActivity?.map((item: any, index: number) => <LatestActivityItem key={index} {...item} />)}
 					</div>

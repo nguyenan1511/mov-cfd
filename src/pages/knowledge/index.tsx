@@ -18,7 +18,7 @@ const course: NextPage = (props: any) => {
 	};
 
 	return (
-		<MasterPage meta={_metaData}>
+		<MasterPage meta={_metaData} className="knowledgehubpage">
 			<UIKnowledge dataPage={props?.dataDetail} />
 		</MasterPage>
 	);

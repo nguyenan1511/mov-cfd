@@ -39,6 +39,7 @@ const Meta = (props: IMetaProps) => {
 				<link rel="apple-touch-startup-image" href="/images-webp/ios-test.webp" />
 
 				<link rel="shortcut icon" href={`${router.basePath}/favicon.ico`} />
+				<link rel="shortcut icon" type="image/png" sizes="32x32" href={`${router.basePath}/favicon.png`} />
 
 				{/* <link rel="shortcut icon" type="image/png" sizes="32x32" href={`${router.basePath}/favicon.ico`} />
 				<link rel="shortcut icon" type="image/png" sizes="16x16" href={`${router.basePath}/favicon.ico`} /> */}

@@ -53,7 +53,7 @@ const UIKnowledge = ({ dataPage }: any) => {
 		<section className="scknowledgehub --ptb">
 			<div className="container">
 				<h1 className="scknowledgehub__top heading --h2 textbox --center">
-					{lang == "vi" ? "Kiến thức" : "Knowledge Hubs"}
+					{lang == "vi" ? "Kiến thức" : "Knowledge Hub"}
 				</h1>
 				<div className="scknowledgehub__tabshub">
 					<div className="scknowledgehub__tabshub-inner">

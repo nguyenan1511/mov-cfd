@@ -7,12 +7,12 @@ const CoreTeams = ({ dataTeam }: any) => {
 	const { lang } = useStorage();
 	return (
 		<section className="coreteams --ptb">
-			<div className="textbox --mb --center">
+			<div className="textbox --mb --center wow fadeInUp">
 				<h2 className="heading --h2 textbox --center --capitalize">
 					{lang == "vi" ? "Đội ngũ chuyên môn" : "The Core team"}
 				</h2>
 			</div>
-			<div className="coreteams__slider">
+			<div className="coreteams__slider wow fadeInRight" data-wow-delay="0.3s">
 				<div className="container">
 					<div className="coreteams__wrap">
 						<div className="coreteams__inner" id="slidercoreteam">

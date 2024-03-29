@@ -4,7 +4,7 @@ import React from "react";
 const Partners = ({ dataPartner = [] }: any) => {
 	const { lang } = useStorage();
 	return (
-		<section className="partners">
+		<section className="partners wow fadeInUp">
 			<div className="container">
 				<div className="heading --h3">{lang == "vi" ? "Đối tác của MOV" : "Partners of MOV"} </div>
 				<div className="partners__list">

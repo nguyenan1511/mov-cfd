@@ -16,7 +16,7 @@ const LatestActivityItem = ({ image, slug, title, updatedAt }: any) => {
 			</div>
 			<div className="card__info">
 				<h3>
-					<Link href={href} className="heading --h4 line-clamp-2 min-h-[54px]" aria-label="article detail">
+					<Link href={href} className="heading --h4 line-clamp-2" aria-label="article detail">
 						{title?.[lang]}
 					</Link>
 				</h3>

@@ -3,7 +3,7 @@ import Course from "@/components/router/UICourse/Course";
 
 const ListCourseHome = ({ dataCourse }: any) => {
 	return (
-		<section className="slidercourses --ptb">
+		<section className="slidercourses --ptb wow fadeInUp">
 			<div className="container">
 				<div className="slidercourses__wrap">
 					<div className="slidercourses__inner" id="slidercourses">
