@@ -21,9 +21,9 @@ const Course = (props: any) => {
 				</Link>
 			</div>
 			<div className="course__info">
-				<h3 className="title heading --h3 --black-cl">
+				{/* <h3 className="title heading --h3 --black-cl">
 					{lang == "vi" ? "Các khoá học sắp khai giảng" : "Upcoming courses are about to begin"}
-				</h3>
+				</h3> */}
 				<h2 className="heading --h1">
 					<span className="heading --h3">{name?.[lang]}</span>
 					{title?.[lang]}
