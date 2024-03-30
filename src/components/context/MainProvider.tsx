@@ -21,7 +21,7 @@ const MainProvider: React.FC<Props> = ({ children }) => {
 	const [loading, setLoading] = useState(true);
 	const [scriptSlider, setScriptSlider] = useState<any>();
 
-	// const [scriptWow, setScriptWow] = useState<any>();
+	const [scriptWow, setScriptWow] = useState<any>();
 
 	const { loadedData } = useStorage();
 
@@ -78,9 +78,10 @@ const MainProvider: React.FC<Props> = ({ children }) => {
 	// };
 
 	const handleLoad = () => {
+		setScriptWow(<script async src={asset("/dest/wow.js")}></script>);
 		setTimeout(() => {
 			setLoading(false);
-		}, 500);
+		}, 700);
 		// setTimeout(() => {
 		// 	initAnimation();
 		// }, 3000);
@@ -123,7 +124,7 @@ const MainProvider: React.FC<Props> = ({ children }) => {
 	return (
 		<MainContext.Provider value={{}}>
 			<Head>{scriptSlider}</Head>
-			{/* <Head>{scriptWow}</Head> */}
+			<Head>{scriptWow}</Head>
 			<div className={`loading ${loading ? "" : "--hide"}`}></div>
 			{children}
 			<style jsx>
