@@ -4,6 +4,7 @@ import { Logo } from "@/components/elements/Icon";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { Fragment, memo, useEffect, useState } from "react";
+import { useWindowSize } from "usehooks-ts";
 
 const LISTMENU = [
 	{
@@ -41,6 +42,8 @@ const Header = ({ classNameHeader = "", scrollTopPos }: any) => {
 	const { setLang, lang } = useStorage();
 	const [fixHeader, setFixHeader] = useState(false);
 
+	const { width } = useWindowSize();
+
 	const { dataProgram } = useMainApi();
 
 	const [openMenu, setOpenMenu] = useState(false);
@@ -71,6 +74,16 @@ const Header = ({ classNameHeader = "", scrollTopPos }: any) => {
 		window.addEventListener("scroll", checkHeader);
 		return () => window.removeEventListener("scroll", checkHeader);
 	}, [scrollTopPos]);
+
+	useEffect(() => {
+		if (typeof window == "undefined") return;
+		if (width > 1100) {
+			const btnMenu = document.querySelector(".btnmenu") as any;
+			const menuMobile = document.querySelector(".menumobile") as any;
+			btnMenu?.classList.remove("--close");
+			menuMobile?.classList.remove("--active");
+		}
+	}, [width]);
 
 	return (
 		<>

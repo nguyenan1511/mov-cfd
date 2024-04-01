@@ -4,7 +4,7 @@ import Link from "next/link";
 import React from "react";
 
 const Course = (props: any) => {
-	const { name, description, teams, slug, image, title } = props;
+	const { name, description, teams, slug, image, title, content } = props;
 
 	const { lang } = useStorage();
 
@@ -12,11 +12,12 @@ const Course = (props: any) => {
 
 	const _link = slug?.[lang] ? `/courses/${slug?.[lang]}` : "#";
 
+	const isShowDetail = content?.[lang]?.length > 0 ? true : false;
+
 	return (
 		<div className="course">
 			<div className="course__img">
-				<img src={image || asset("/assets/img/course-img1.jpg")} alt="course-img" />
-				<Link href={_link}>
+				<Link href={_link} className={isShowDetail ? "" : "pointer-events-none"}>
 					<img src={image || asset("/assets/img/course-img1.jpg")} alt="course-img" />
 				</Link>
 			</div>
@@ -43,9 +44,13 @@ const Course = (props: any) => {
 						<p className="teacher__info-rank">{_team?.jobTitle?.[lang]}</p>
 					</div>
 				</div>
-				<Link href={_link} className="btn btn-fill">
-					{lang == "vi" ? "Xem thêm" : "Learn more"}
-				</Link>
+				{isShowDetail ? (
+					<Link href={_link} className="btn btn-fill">
+						{lang == "vi" ? "Xem thêm" : "Learn more"}
+					</Link>
+				) : (
+					""
+				)}
 			</div>
 		</div>
 	);

@@ -1,9 +1,35 @@
 import { useStorage } from "@/components/context/StorageProvider";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect } from "react";
 
 const HeroBanner = ({ dataPage }: any) => {
 	const { lang } = useStorage();
+
+	useEffect(() => {
+		const timeoutFn = setTimeout(() => {
+			function mouseMoveParallax() {
+				const elems = document.querySelectorAll(".hero .parallax");
+				function parallax(e: any) {
+					elems.forEach(function (elem: any) {
+						let speed = elem.getAttribute("data-speed") as any;
+						let x = (e.clientX * speed) / 80;
+						let y = (e.clientY * speed) / 80;
+						if (window.innerWidth >= 767) {
+							elem.style.transform = `translate(${x}px, ${y}px)`;
+						} else {
+							elem.style.transform = `initial`;
+						}
+					});
+				}
+				if (window.innerWidth >= 767) {
+					document.addEventListener("mousemove", parallax);
+				}
+			}
+			mouseMoveParallax();
+		}, 1000);
+		return () => clearTimeout(timeoutFn);
+	}, []);
+
 	return (
 		<section className="hero --ptb">
 			<div className="container parallax">
@@ -18,14 +44,29 @@ const HeroBanner = ({ dataPage }: any) => {
 						{dataPage?.[lang]?.buttonName}
 					</Link>
 				</div>
-				<div className="source-layer4 div hero__img --img1 wow fadeIn" data-wow-delay="0.8s">
-					<img src={dataPage?.[lang]?.image1 || "/img/hero-img-1.jpg"} alt="" />
+				<div className="parallax hero__img --img1" data-speed="-5">
+					<img
+						src={dataPage?.[lang]?.image1 || "/img/hero-img-1.jpg"}
+						alt=""
+						className="wow fadeIn"
+						data-wow-delay="0.8s"
+					/>
 				</div>
-				<div className="source-layer4 div hero__img --img2 wow fadeIn" data-wow-delay="1.2s">
-					<img src={dataPage?.[lang]?.image2 || "/img/hero-img-2.jpg"} alt="" />
+				<div className="parallax hero__img --img2" data-speed="-3">
+					<img
+						src={dataPage?.[lang]?.image2 || "/img/hero-img-2.jpg"}
+						alt=""
+						className="wow fadeIn"
+						data-wow-delay="1.2s"
+					/>
 				</div>
-				<div className="source-layer4 div hero__img --img3 wow fadeIn" data-wow-delay="1s">
-					<img src={dataPage?.[lang]?.image3 || "/img/hero-img-3.jpg"} alt="" />
+				<div className="parallax hero__img --img3" data-speed="4">
+					<img
+						src={dataPage?.[lang]?.image3 || "/img/hero-img-3.jpg"}
+						alt=""
+						className="wow fadeIn"
+						data-wow-delay="1s"
+					/>
 				</div>
 			</div>
 		</section>

@@ -8,10 +8,14 @@ const BannerCourse = ({ data = {} }: any) => {
 		<div className="textbox --center">
 			<h1 className="heading --h2">{data?.name?.[lang]}</h1>
 			<div className="desc">
-				<p>
+				<div>
 					<strong>{data?.title?.[lang]}</strong>
-					{data?.description?.[lang]}
-				</p>
+					<p
+						dangerouslySetInnerHTML={{
+							__html: data?.description?.[lang],
+						}}
+					></p>
+				</div>
 			</div>
 		</div>
 	);

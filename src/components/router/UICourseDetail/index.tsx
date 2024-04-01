@@ -1,11 +1,10 @@
 import { useStorage } from "@/components/context/StorageProvider";
-import asset from "@/plugins/asset";
-import React, { Fragment, useEffect } from "react";
-const nl2br = require("react-nl2br");
-import $ from "jquery";
 import Accordion from "@/components/router/UICourseDetail/Accordion";
+import $ from "jquery";
 import Link from "next/link";
+import { useEffect } from "react";
 import { useWindowSize } from "usehooks-ts";
+const nl2br = require("react-nl2br");
 
 const UICourseDetail = ({ dataPage }: any) => {
 	const { lang } = useStorage();
@@ -115,7 +114,7 @@ const UICourseDetail = ({ dataPage }: any) => {
 								{lang === "vi" ? "Bạn cần chuẩn bị gì" : "What do you need to prepare?"}
 							</h2>
 							{required?.[lang]?.map((item: any, index: number) => (
-								<p key={index}>
+								<div key={index} className="desc">
 									<strong>{item?.title}</strong>
 									<br />
 									{item?.description?.map((itemChild: any, indexChild: number) => (
@@ -126,7 +125,7 @@ const UICourseDetail = ({ dataPage }: any) => {
 											}}
 										></div>
 									))}
-								</p>
+								</div>
 							))}
 						</div>
 

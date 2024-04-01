@@ -70,10 +70,29 @@ $(document).ready(function () {
 	function setFullHeightMobile() {
 		document.documentElement.style.setProperty("--vh", `${window.innerHeight / 100}px`);
 	}
-	
-	window.addEventListener('resize', function () { 
-        setFullHeightMobile()
-    })
+	// function mouseMoveParallax() {
+	// 	const elems = document.querySelectorAll(".hero .parallax");
+	// 	function parallax(e) {
+	// 		elems.forEach(function (elem) {
+	// 			let speed = elem.getAttribute("data-speed");
+	// 			let x = (e.clientX * speed) / 80;
+	// 			let y = (e.clientY * speed) / 80;
+	// 			if (window.innerWidth >= 767) {
+	// 				elem.style.transform = `translate(${x}px, ${y}px)`;
+	// 			} else {
+	// 				elem.style.transform = `initial`;
+	// 			}
+	// 		});
+	// 	}
+	// 	if (window.innerWidth >= 767) {
+	// 		document.addEventListener("mousemove", parallax);
+	// 	}
+	// }
+
+	window.addEventListener("resize", function () {
+		setFullHeightMobile();
+		// mouseMoveParallax();
+	});
 
 	sliderCoursesList(".slidercourses", "#slidercourses");
 	sliderCoursesList(".coreteams", "#slidercoreteam");
