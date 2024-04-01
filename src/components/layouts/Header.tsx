@@ -87,7 +87,7 @@ const Header = ({ classNameHeader = "", scrollTopPos }: any) => {
 
 	return (
 		<>
-			<header className={`header ${fixHeader ? "" : classNameHeader}`}>
+			<header className={`header ${fixHeader || openMenu ? "" : classNameHeader}`}>
 				<div className="container">
 					<div className="header__left">
 						<Link href="/" aria-label="Read more about Seminole tax hike">

@@ -11,6 +11,7 @@ const UICourseDetail = ({ dataPage }: any) => {
 	useEffect(() => {
 		if (typeof window == "undefined") return;
 		document.body.classList.add("coursedetailpage");
+		return () => document.body.classList.remove("coursedetailpage");
 	}, []);
 
 	useEffect(() => {
