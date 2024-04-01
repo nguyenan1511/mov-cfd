@@ -67,9 +67,18 @@ $(document).ready(function () {
 		}
 	}
 
+	function setFullHeightMobile() {
+		document.documentElement.style.setProperty("--vh", `${window.innerHeight / 100}px`);
+	}
+	
+	window.addEventListener('resize', function () { 
+        setFullHeightMobile()
+    })
+
 	sliderCoursesList(".slidercourses", "#slidercourses");
 	sliderCoursesList(".coreteams", "#slidercoreteam");
 	sliderCoursesList(".latestactivities", "#sliderlatest");
 	sliderCoursesList(".prevclass", "#prevclass");
 	sliderCoursesList(".otherclass", "#otherclass");
+	setFullHeightMobile();
 });

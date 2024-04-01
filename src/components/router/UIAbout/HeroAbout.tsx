@@ -8,7 +8,7 @@ const HeroAbout = ({ dataPage }: any) => {
 			<div className="container">
 				<div className="textbox --center">
 					<h1
-						className="heading --h0"
+						className="heading --h0 wow fadeInUp"
 						dangerouslySetInnerHTML={{
 							__html: dataPage?.[lang]?.name,
 						}}
@@ -18,13 +18,13 @@ const HeroAbout = ({ dataPage }: any) => {
 						{}
 					</h1>
 				</div>
-				<div className="hero__img --img1">
+				<div className="hero__img --img1 wow fadeIn" data-wow-delay="0.6s">
 					<img src={dataPage?.[lang]?.image1 || "/img/hero-img-1.jpg"} alt="" />
 				</div>
-				<div className="hero__img --img2">
+				<div className="hero__img --img2 wow fadeIn" data-wow-delay="1s">
 					<img src={dataPage?.[lang]?.image2 || "/img/hero-img-2.jpg"} alt="" />
 				</div>
-				<div className="hero__img --img3">
+				<div className="hero__img --img3 wow fadeIn" data-wow-delay="0.8s">
 					<img src={dataPage?.[lang]?.image3 || "/img/hero-img-3.jpg"} alt="" />
 				</div>
 			</div>

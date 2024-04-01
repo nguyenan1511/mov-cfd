@@ -1,5 +1,7 @@
 /* eslint-disable @typescript-eslint/no-use-before-define */
 import { useApiProvider } from "@/components/context/ApiProvider";
+import { TIME_STALE } from "@/constant";
+import { useQuery } from "@tanstack/react-query";
 import { createContext, useContext } from "react";
 
 export const MainApiContext = createContext<any | null>(null);
@@ -77,6 +79,18 @@ const MainApiProvider: React.FC<Props> = ({ children }) => {
 		});
 	};
 
+	const { data: dataProgram } = useQuery({
+		queryFn: async () => {
+			const res = await getDataCategoryCourse();
+			if (res) {
+				return res?.data?.activities;
+			}
+			return null;
+		},
+		queryKey: ["categoryCourses"],
+		staleTime: TIME_STALE, // 60 seconds
+	});
+
 	return (
 		<MainApiContext.Provider
 			value={{
@@ -91,6 +105,7 @@ const MainApiProvider: React.FC<Props> = ({ children }) => {
 				getDataCategoryKnowledge,
 				getDataProgram,
 				getDataCategoryCourse,
+				dataProgram,
 			}}
 		>
 			{children}

@@ -1,8 +1,9 @@
+import { useMainApi } from "@/components/context/MainApiProvider";
 import { useStorage } from "@/components/context/StorageProvider";
 import { Logo } from "@/components/elements/Icon";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import React, { memo, useEffect, useState } from "react";
+import React, { Fragment, memo, useEffect, useState } from "react";
 
 const LISTMENU = [
 	{
@@ -40,11 +41,13 @@ const Header = ({ classNameHeader = "", scrollTopPos }: any) => {
 	const { setLang, lang } = useStorage();
 	const [fixHeader, setFixHeader] = useState(false);
 
-	const router = useRouter();
+	const { dataProgram } = useMainApi();
 
 	const [openMenu, setOpenMenu] = useState(false);
 
 	const { pathname, push, asPath } = useRouter();
+
+	const [showDropdownMobile, setShowDropdownMobile] = useState(false);
 
 	const changeLang = (lang: string) => {
 		push(asPath, undefined, {
@@ -80,16 +83,48 @@ const Header = ({ classNameHeader = "", scrollTopPos }: any) => {
 					</div>
 					<ul className="header__menu">
 						{LISTMENU.map((item: any, index: number) => (
-							<li key={index}>
-								<Link
-									href={item?.link}
-									className={`itemmenu ${
-										pathname?.includes(item.link) || pathname?.includes(item?.path) ? "active" : ""
-									}`}
-								>
-									{item?.name?.[lang]}
-								</Link>
-							</li>
+							<Fragment key={index}>
+								{item?.path === "/courses" ? (
+									<li>
+										<div
+											className={`itemmenu relative ${
+												pathname?.includes(item.link) || pathname?.includes(item?.path)
+													? "active"
+													: ""
+											}`}
+										>
+											{item?.name?.[lang]}
+										</div>
+										{item?.path === "/courses" && (
+											<ul>
+												{dataProgram?.map((itemSub: any, indexSub: number) => (
+													<li
+														className={itemSub?.countNumberCateg > 0 ? "active" : ""}
+														key={indexSub}
+													>
+														<Link href={`/courses?category=${itemSub?.id}`}>
+															{itemSub?.name?.[lang]}
+														</Link>
+													</li>
+												))}
+											</ul>
+										)}
+									</li>
+								) : (
+									<li>
+										<Link
+											href={item?.link}
+											className={`itemmenu relative ${
+												pathname?.includes(item.link) || pathname?.includes(item?.path)
+													? "active"
+													: ""
+											}`}
+										>
+											{item?.name?.[lang]}
+										</Link>
+									</li>
+								)}
+							</Fragment>
 						))}
 					</ul>
 					<div className="header__right">
@@ -123,18 +158,51 @@ const Header = ({ classNameHeader = "", scrollTopPos }: any) => {
 					<div className="menumobile__inner">
 						<ul>
 							{LISTMENU.map((item: any, index: number) => (
-								<li key={index}>
-									<Link
-										href={item?.link}
-										className={`itemmenu ${
-											pathname?.includes(item.link) || pathname?.includes(item?.path)
-												? "active"
-												: ""
-										}`}
-									>
-										{item?.name?.[lang]}
-									</Link>
-								</li>
+								<Fragment key={index}>
+									{item?.path === "/courses" ? (
+										<li className="active">
+											<div
+												onClick={() => setShowDropdownMobile(!showDropdownMobile)}
+												className={`itemmenu relative cursor-pointer ${
+													pathname?.includes(item.link) ||
+													pathname?.includes(item?.path) ||
+													showDropdownMobile
+														? "active"
+														: ""
+												}`}
+											>
+												{item?.name?.[lang]}
+											</div>
+											{item?.path === "/courses" && (
+												<ul>
+													{dataProgram?.map((itemSub: any, indexSub: number) => (
+														<li
+															className={itemSub?.countNumberCateg > 0 ? "active" : ""}
+															key={indexSub}
+														>
+															<Link href={`/courses?category=${itemSub?.id}`}>
+																{itemSub?.name?.[lang]}
+															</Link>
+														</li>
+													))}
+												</ul>
+											)}
+										</li>
+									) : (
+										<li className="itemmenu">
+											<Link
+												href={item?.link}
+												className={`itemmenu ${
+													pathname?.includes(item.link) || pathname?.includes(item?.path)
+														? "active"
+														: ""
+												}`}
+											>
+												{item?.name?.[lang]}
+											</Link>
+										</li>
+									)}
+								</Fragment>
 							))}
 						</ul>
 						<Link href="/contact" className="btn-contact btn btn-fill">

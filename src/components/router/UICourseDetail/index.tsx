@@ -63,6 +63,16 @@ const UICourseDetail = ({ dataPage }: any) => {
 						<p>{nl2br(title?.[lang])}</p>
 					</div>
 				</div>
+
+				<picture>
+					<source media="(max-width:767px)" srcSet={imageMobile} />
+					<img
+						src={image}
+						alt=""
+						className="img"
+						sizes="(max-width: 767px) 100vw, (max-width: 2560px) 100vw"
+					/>
+				</picture>
 			</section>
 
 			<section className="coursedtcontent --ptb">

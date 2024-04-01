@@ -7,7 +7,7 @@ const AboutContent = ({ dataPage }: any) => {
 		<section className="aboutcontent --pb">
 			<div className="container">
 				<div className="aboutcontent__inner">
-					<div className="contentbox">
+					<div className="contentbox wow fadeInUp">
 						<h2 className="heading --h4">{dataPage?.[lang]?.title1}</h2>
 						<div
 							className="contentbox__text"
@@ -16,7 +16,7 @@ const AboutContent = ({ dataPage }: any) => {
 							}}
 						></div>
 					</div>
-					<div className="contentbox ">
+					<div className="contentbox wow fadeInUp">
 						<h2 className="heading --h4 --last">{dataPage?.[lang]?.title2}</h2>
 						<div
 							className="contentbox__text"
