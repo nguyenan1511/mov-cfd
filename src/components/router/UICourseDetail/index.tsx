@@ -3,13 +3,10 @@ import Accordion from "@/components/router/UICourseDetail/Accordion";
 import $ from "jquery";
 import Link from "next/link";
 import { useEffect } from "react";
-import { useWindowSize } from "usehooks-ts";
 const nl2br = require("react-nl2br");
 
 const UICourseDetail = ({ dataPage }: any) => {
 	const { lang } = useStorage();
-
-	const { width } = useWindowSize();
 
 	useEffect(() => {
 		if (typeof window == "undefined") return;
@@ -52,7 +49,7 @@ const UICourseDetail = ({ dataPage }: any) => {
 
 	return (
 		<>
-			<section className="coursedthero" style={{ backgroundImage: `url(${width > 767 ? image : imageMobile})` }}>
+			<section className="coursedthero">
 				<div className="textbox --center --white-cl">
 					<h1 className="heading --h2">
 						<span className="heading --h3">{name?.[lang]}</span>
@@ -62,16 +59,13 @@ const UICourseDetail = ({ dataPage }: any) => {
 						<p>{nl2br(title?.[lang])}</p>
 					</div>
 				</div>
-
-				<picture>
-					<source media="(max-width:767px)" srcSet={imageMobile} />
-					<img
-						src={image}
-						alt=""
-						className="img"
-						sizes="(max-width: 767px) 100vw, (max-width: 2560px) 100vw"
-					/>
-				</picture>
+				<img
+					src={image}
+					srcSet={`${imageMobile} 767w, ${image} 2560w`}
+					sizes="(max-width: 767px) 100vw, (max-width: 2560px) 100vw"
+					alt=""
+					className="img"
+				/>
 			</section>
 
 			<section className="coursedtcontent --ptb">
