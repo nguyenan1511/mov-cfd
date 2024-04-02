@@ -4,7 +4,7 @@ import Link from "next/link";
 import React from "react";
 
 const Course = (props: any) => {
-	const { name, description, teams, slug, image, title, content } = props;
+	const { name, description, teams, slug, image, title, content, imageMobile } = props;
 
 	const { lang } = useStorage();
 
@@ -18,7 +18,7 @@ const Course = (props: any) => {
 		<div className="course">
 			<div className="course__img">
 				<Link href={_link} className={isShowDetail ? "" : "pointer-events-none"}>
-					<img src={image || asset("/assets/img/course-img1.jpg")} alt="course-img" />
+					<img src={imageMobile || image || asset("/assets/img/course-img1.jpg")} alt="course-img" />
 				</Link>
 			</div>
 			<div className="course__info">
