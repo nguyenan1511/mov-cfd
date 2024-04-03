@@ -12,7 +12,8 @@ const program: NextPage = (props: any) => {
 	const router = useRouter();
 
 	const _metaData = {
-		metaTitle: props?.dataDetail?.metaTitle?.[router.locale as any],
+		metaTitle:
+			props?.dataDetail?.metaTitle?.[router.locale as any] || props?.dataDetail?.name?.[router.locale as any],
 		metaDescription: props?.dataDetail?.metaDescription?.[router.locale as any],
 		metaImage: props?.dataDetail?.metaImage,
 	};
