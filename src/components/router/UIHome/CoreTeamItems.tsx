@@ -11,7 +11,12 @@ const CoreTeamItems = ({ image = "", name, description, jobTitle }: any) => {
 			<div className="course__info">
 				<h2 className="heading --h3">{name}</h2>
 				<p className="position heading --h5 --uppercase">{jobTitle?.[lang]}</p>
-				<div className="desc">{description?.[lang]}</div>
+				<div
+					className="desc"
+					dangerouslySetInnerHTML={{
+						__html: description?.[lang],
+					}}
+				></div>
 			</div>
 		</div>
 	);

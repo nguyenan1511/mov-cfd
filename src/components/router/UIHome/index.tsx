@@ -82,6 +82,7 @@ const UIHome = ({ dataPage }: any) => {
 		}
 	}, [JSON.stringify(dataCourse), JSON.stringify(dataTeam), JSON.stringify(dataActivity)]);
 
+
 	return (
 		<>
 			<HeroBanner dataPage={dataPage} />
