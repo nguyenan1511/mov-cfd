@@ -133,7 +133,12 @@ const UICourseDetail = ({ dataPage }: any) => {
 								<div className="teacher__info">
 									<p className="teacher__info-name heading --h3">{teams?.[0]?.name}</p>
 									<p className="teacher__info-rank">{teams?.[0]?.jobTitle?.[lang]}</p>
-									<p className="teacher__info-text">{teams?.[0]?.description?.[lang]}</p>
+									<div
+										className="teacher__info-text"
+										dangerouslySetInnerHTML={{
+											__html: teams?.[0]?.description?.[lang],
+										}}
+									></div>
 								</div>
 							</div>
 						</div>
