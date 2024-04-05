@@ -44,7 +44,7 @@ const HeroBanner = ({ dataPage }: any) => {
 						{dataPage?.[lang]?.buttonName}
 					</Link>
 				</div>
-				<div className="parallax hero__img --img1" data-speed="-5">
+				<div className="parallax hero__img --img1" data-speed="3">
 					<img
 						src={dataPage?.[lang]?.image1 || "/img/hero-img-1.jpg"}
 						alt=""
@@ -52,7 +52,7 @@ const HeroBanner = ({ dataPage }: any) => {
 						data-wow-delay="0.8s"
 					/>
 				</div>
-				<div className="parallax hero__img --img2" data-speed="-3">
+				<div className="parallax hero__img --img2" data-speed="2">
 					<img
 						src={dataPage?.[lang]?.image2 || "/img/hero-img-2.jpg"}
 						alt=""

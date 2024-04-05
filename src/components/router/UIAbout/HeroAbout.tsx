@@ -44,20 +44,20 @@ const HeroAbout = ({ dataPage }: any) => {
 						{}
 					</h1>
 				</div>
-				<div className="hero__img --img1 parallax" data-speed="-5">
+				<div className="hero__img --img1 parallax" data-speed="3">
 					<img
 						src={dataPage?.[lang]?.image1 || "/img/hero-img-1.jpg"}
 						alt=""
 						className="wow fadeIn"
-						data-wow-delay="0.6s"
+						data-wow-delay="0.8s"
 					/>
 				</div>
-				<div className="hero__img --img2 parallax" data-speed="-3">
+				<div className="hero__img --img2 parallax" data-speed="2">
 					<img
 						src={dataPage?.[lang]?.image2 || "/img/hero-img-2.jpg"}
 						alt=""
 						className="wow fadeIn"
-						data-wow-delay="1s"
+						data-wow-delay="1.2s"
 					/>
 				</div>
 				<div className="hero__img --img3 parallax" data-speed="4">
@@ -65,7 +65,7 @@ const HeroAbout = ({ dataPage }: any) => {
 						src={dataPage?.[lang]?.image3 || "/img/hero-img-3.jpg"}
 						alt=""
 						className="wow fadeIn"
-						data-wow-delay="0.8s"
+						data-wow-delay="1s"
 					/>
 				</div>
 			</div>
