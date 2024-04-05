@@ -6,7 +6,7 @@ const CoreTeamItems = ({ image = "", name, description, jobTitle }: any) => {
 	return (
 		<div className="course">
 			<div className="course__img">
-				<img src={image || "/img/core-team-1.jpg"} alt="" />
+				<img src={image} alt="" />
 			</div>
 			<div className="course__info">
 				<h2 className="heading --h3">{name}</h2>

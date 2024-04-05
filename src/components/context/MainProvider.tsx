@@ -5,8 +5,6 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import { createContext, useContext, useEffect, useState } from "react";
 
-// gsap.registerPlugin(ScrollTrigger);
-
 type MainContextType = {};
 
 export const MainContext = createContext<MainContextType | null>(null);
@@ -27,56 +25,6 @@ const MainProvider: React.FC<Props> = ({ children }) => {
 
 	const router = useRouter();
 
-	// // Function Animate
-	// const initAnimation = () => {
-	// 	let listFadeUp = gsap.utils.toArray(".fadeUp");
-	// 	listFadeUp.forEach((l: any) => {
-	// 		gsap.timeline({
-	// 			scrollTrigger: {
-	// 				trigger: l,
-	// 				start: "top 95%",
-	// 				scroller: ".root-scroll",
-	// 			},
-	// 		}).fromTo(
-	// 			l,
-	// 			{ y: 100, autoAlpha: 0, opacity: 0, duration: 0.5, stagger: 0.3 },
-	// 			{ y: 0, autoAlpha: 1, opacity: 1, duration: 0.5, stagger: 0.3 }
-	// 		);
-	// 	});
-	// 	let listFadeIn = gsap.utils.toArray(".fadeIn");
-	// 	listFadeIn.forEach((l: any) => {
-	// 		gsap.timeline({
-	// 			scrollTrigger: {
-	// 				trigger: l,
-	// 				start: "top 90%",
-	// 				scroller: ".root-scroll",
-	// 			},
-	// 		}).fromTo(l, { autoAlpha: 0, opacity: 0, y: 200 }, { autoAlpha: 1, opacity: 1, y: 0 });
-	// 	});
-
-	// 	let listFadeLeft = gsap.utils.toArray(".fadeLeft");
-	// 	listFadeLeft.forEach((l: any) => {
-	// 		gsap.timeline({
-	// 			scrollTrigger: {
-	// 				trigger: l,
-	// 				start: "top 80%",
-	// 				scroller: ".root-scroll",
-	// 			},
-	// 		}).fromTo(l, { autoAlpha: 0, opacity: 0, x: 400 }, { autoAlpha: 1, opacity: 1, x: 0 });
-	// 	});
-	// 	let listFadeRight = gsap.utils.toArray(".fadeRight");
-	// 	listFadeRight.forEach((l: any) => {
-	// 		gsap.timeline({
-	// 			scrollTrigger: {
-	// 				trigger: l,
-	// 				start: "top 80%",
-	// 				scroller: ".root-scroll",
-	// 			},
-	// 		}).fromTo(l, { autoAlpha: 0, opacity: 0, x: -400 }, { autoAlpha: 1, opacity: 1, x: 0 });
-	// 	});
-	// 	ScrollTrigger.refresh();
-	// };
-
 	const handleLoad = () => {
 		setScriptWow(<script async src={asset("/dest/wow.js")}></script>);
 		setTimeout(() => {
@@ -90,14 +38,6 @@ const MainProvider: React.FC<Props> = ({ children }) => {
 	useEffect(() => {
 		handleLoad();
 	}, []);
-
-	// useEffect(() => {
-	// 	if (!loading) {
-	// 		setTimeout(() => {
-	// 			setScriptWow(<script async src={asset("/dest/wow.js")}></script>);
-	// 		}, 500);
-	// 	}
-	// }, [loading]);
 
 	useEffect(() => {
 		const myTimeout = setTimeout(() => {

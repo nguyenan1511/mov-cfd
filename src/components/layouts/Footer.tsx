@@ -44,22 +44,34 @@ const Footer = () => {
 						<p className="copyright">{dataFooter?.data?.[lang]?.powerBy}</p>
 					</div>
 					<div className="footer__top-info">
-						<Link href={`mailto:${dataFooter?.data?.[lang]?.email}`}>
-							{dataFooter?.data?.[lang]?.email}
-						</Link>
-						<Link href={`tel:${dataFooter?.data?.[lang]?.email}`}>{dataFooter?.data?.[lang]?.phone}</Link>
+						{dataFooter?.data?.[lang]?.email && (
+							<Link href={`mailto:${dataFooter?.data?.[lang]?.email}`}>
+								{dataFooter?.data?.[lang]?.email}
+							</Link>
+						)}
+						{dataFooter?.data?.[lang]?.phone && (
+							<Link href={`tel:${dataFooter?.data?.[lang]?.phone}`}>
+								{dataFooter?.data?.[lang]?.phone}
+							</Link>
+						)}
 						<Link href="/contact">{lang == "vi" ? "Liên hệ" : "Contact Us"}</Link>
 					</div>
 					<div className="footer__top-social">
-						<Link href={dataFooter?.data?.[lang]?.fb || "#"} target="_blank">
-							Facebook
-						</Link>
-						<Link href={dataFooter?.data?.[lang]?.linkdIn || "#"} target="_blank">
-							Linkedin
-						</Link>
-						<Link href={dataFooter?.data?.[lang]?.youtube || "#"} target="_blank">
-							Youtube
-						</Link>
+						{dataFooter?.data?.[lang]?.fb && (
+							<Link href={dataFooter?.data?.[lang]?.fb || "#"} target="_blank">
+								Facebook
+							</Link>
+						)}
+						{dataFooter?.data?.[lang]?.linkdIn && (
+							<Link href={dataFooter?.data?.[lang]?.linkdIn || "#"} target="_blank">
+								Linkedin
+							</Link>
+						)}
+						{dataFooter?.data?.[lang]?.youtube && (
+							<Link href={dataFooter?.data?.[lang]?.youtube || "#"} target="_blank">
+								Youtube
+							</Link>
+						)}
 					</div>
 				</div>
 			</div>

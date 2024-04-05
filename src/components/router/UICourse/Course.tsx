@@ -1,7 +1,5 @@
 import { useStorage } from "@/components/context/StorageProvider";
-import asset from "@/plugins/asset";
 import Link from "next/link";
-import React from "react";
 
 const Course = (props: any) => {
 	const { name, description, teams, slug, image, title, content, imageMobile } = props;
@@ -18,7 +16,7 @@ const Course = (props: any) => {
 		<div className="course">
 			<div className="course__img">
 				<Link href={_link} className={isShowDetail ? "" : "pointer-events-none"}>
-					<img src={imageMobile || image || asset("/assets/img/course-img1.jpg")} alt="course-img" />
+					<img src={imageMobile || image} alt="course-img" />
 				</Link>
 			</div>
 			<div className="course__info">
@@ -37,7 +35,7 @@ const Course = (props: any) => {
 				></p>
 				<div className="teacher small">
 					<div className="teacher__img">
-						<img src={_team?.image || asset("/assets/img/img-lectur.jpg")} alt="" />
+						<img src={_team?.image} alt="" />
 					</div>
 					<div className="teacher__info">
 						<p className="teacher__info-name">{_team?.name}</p>
