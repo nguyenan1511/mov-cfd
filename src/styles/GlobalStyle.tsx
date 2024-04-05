@@ -6,8 +6,6 @@ import "slick-carousel/slick/slick.css";
 const GlobalStyle = () => {
 	return (
 		<style jsx global>{`
-			html,
-			body,
 			.hideScrollbar {
 				height: auto;
 				-ms-overflow-style: none;
@@ -17,6 +15,8 @@ const GlobalStyle = () => {
 				}
 			}
 
+			html,
+			body,
 			* {
 				-webkit-box-sizing: border-box;
 				-moz-box-sizing: border-box;
